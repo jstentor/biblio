@@ -1,0 +1,894 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2018-03-14 13:44+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: Controller/AutoresController.php:55;80
+msgid "The autor has been saved."
+msgstr ""
+
+#: Controller/AutoresController.php:59;84
+msgid "The autor could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/AutoresController.php:102
+msgid "The autor has been deleted."
+msgstr ""
+
+#: Controller/AutoresController.php:104
+msgid "The autor could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/LibrosController.php:58;84
+msgid "The libro has been saved."
+msgstr ""
+
+#: Controller/LibrosController.php:62;88
+msgid "The libro could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/LibrosController.php:107
+msgid "The libro has been deleted."
+msgstr ""
+
+#: Controller/LibrosController.php:109
+msgid "The libro could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/TemasController.php:58;83
+msgid "The tema has been saved."
+msgstr ""
+
+#: Controller/TemasController.php:62;87
+msgid "The tema could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/TemasController.php:105
+msgid "The tema has been deleted."
+msgstr ""
+
+#: Controller/TemasController.php:107
+msgid "The tema could not be deleted. Please, try again."
+msgstr ""
+
+#: Template/Autores/add.ctp:9
+#: Template/Autores/edit.ctp:9
+#: Template/Autores/index.ctp:9;26
+#: Template/Autores/view.ctp:9;70
+#: Template/Libros/add.ctp:9
+#: Template/Libros/edit.ctp:9
+#: Template/Libros/index.ctp:9
+#: Template/Libros/view.ctp:9;109;139
+#: Template/Temas/add.ctp:9
+#: Template/Temas/edit.ctp:9
+#: Template/Temas/index.ctp:9;29
+#: Template/Temas/view.ctp:9;74;130;170;197
+msgid "Actions"
+msgstr ""
+
+#: Template/Autores/add.ctp:10
+#: Template/Autores/edit.ctp:16
+#: Template/Autores/view.ctp:12
+#: Template/Libros/add.ctp:13
+#: Template/Libros/edit.ctp:19
+#: Template/Libros/index.ctp:13
+#: Template/Libros/view.ctp:16
+msgid "List Autores"
+msgstr ""
+
+#: Template/Autores/add.ctp:11
+#: Template/Autores/edit.ctp:17
+#: Template/Autores/index.ctp:11
+#: Template/Autores/view.ctp:14
+#: Template/Libros/add.ctp:10
+#: Template/Libros/edit.ctp:16
+#: Template/Libros/view.ctp:12
+#: Template/Temas/add.ctp:13
+#: Template/Temas/edit.ctp:19
+#: Template/Temas/index.ctp:11
+#: Template/Temas/view.ctp:16
+msgid "List Libros"
+msgstr ""
+
+#: Template/Autores/add.ctp:12
+#: Template/Autores/edit.ctp:18
+#: Template/Autores/index.ctp:12
+#: Template/Autores/view.ctp:15
+#: Template/Libros/index.ctp:10
+#: Template/Libros/view.ctp:13
+#: Template/Temas/add.ctp:14
+#: Template/Temas/edit.ctp:20
+#: Template/Temas/index.ctp:12
+#: Template/Temas/view.ctp:17
+msgid "New Libro"
+msgstr ""
+
+#: Template/Autores/add.ctp:18
+msgid "Add Autor"
+msgstr ""
+
+#: Template/Autores/add.ctp:26
+#: Template/Autores/edit.ctp:32
+#: Template/Libros/add.ctp:44
+#: Template/Libros/edit.ctp:50
+#: Template/Temas/add.ctp:30
+#: Template/Temas/edit.ctp:36
+#: View/Helper/FormHelper.php:1927
+msgid "Submit"
+msgstr ""
+
+#: Template/Autores/edit.ctp:11
+#: Template/Autores/index.ctp:41
+#: Template/Autores/view.ctp:96
+#: Template/Libros/edit.ctp:11
+#: Template/Libros/index.ctp:41
+#: Template/Libros/view.ctp:122;151
+#: Template/Temas/edit.ctp:11
+#: Template/Temas/index.ctp:43
+#: Template/Temas/view.ctp:100;155;180;209
+msgid "Delete"
+msgstr ""
+
+#: Template/Autores/edit.ctp:13
+#: Template/Autores/index.ctp:41
+#: Template/Autores/view.ctp:11;96
+#: Template/Libros/edit.ctp:13
+#: Template/Libros/index.ctp:41
+#: Template/Libros/view.ctp:11;122;151
+#: Template/Temas/edit.ctp:13
+#: Template/Temas/index.ctp:43
+#: Template/Temas/view.ctp:11;100;155;180;209
+msgid "Are you sure you want to delete # {0}?"
+msgstr ""
+
+#: Template/Autores/edit.ctp:24
+#: Template/Autores/view.ctp:10
+msgid "Edit Autor"
+msgstr ""
+
+#: Template/Autores/index.ctp:10
+#: Template/Autores/view.ctp:13
+#: Template/Libros/add.ctp:14
+#: Template/Libros/edit.ctp:20
+#: Template/Libros/index.ctp:14
+#: Template/Libros/view.ctp:17
+msgid "New Autor"
+msgstr ""
+
+#: Template/Autores/index.ctp:16
+msgid "Autores"
+msgstr ""
+
+#: Template/Autores/index.ctp:39
+#: Template/Autores/view.ctp:94
+#: Template/Libros/index.ctp:39
+#: Template/Libros/view.ctp:120;149
+#: Template/Temas/index.ctp:41
+#: Template/Temas/view.ctp:98;153;178;207
+#: View/Helper/PaginatorHelper.php:1220
+msgid "View"
+msgstr ""
+
+#: Template/Autores/index.ctp:40
+#: Template/Autores/view.ctp:95
+#: Template/Libros/index.ctp:40
+#: Template/Libros/view.ctp:121;150
+#: Template/Temas/index.ctp:42
+#: Template/Temas/view.ctp:99;154;179;208
+msgid "Edit"
+msgstr ""
+
+#: Template/Autores/index.ctp:49
+#: Template/Libros/index.ctp:49
+#: Template/Temas/index.ctp:51
+msgid "first"
+msgstr ""
+
+#: Template/Autores/index.ctp:50
+#: Template/Libros/index.ctp:50
+#: Template/Temas/index.ctp:52
+msgid "previous"
+msgstr ""
+
+#: Template/Autores/index.ctp:52
+#: Template/Libros/index.ctp:52
+#: Template/Temas/index.ctp:54
+msgid "next"
+msgstr ""
+
+#: Template/Autores/index.ctp:53
+#: Template/Libros/index.ctp:53
+#: Template/Temas/index.ctp:55
+msgid "last"
+msgstr ""
+
+#: Template/Autores/index.ctp:55
+#: Template/Libros/index.ctp:55
+#: Template/Temas/index.ctp:57
+msgid "Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total"
+msgstr ""
+
+#: Template/Autores/view.ctp:11
+msgid "Delete Autor"
+msgstr ""
+
+#: Template/Autores/view.ctp:22
+#: Template/Libros/view.ctp:104
+msgid "Ape Nom"
+msgstr ""
+
+#: Template/Autores/view.ctp:26
+#: Template/Libros/view.ctp:105;136
+msgid "Nombre"
+msgstr ""
+
+#: Template/Autores/view.ctp:30
+#: Template/Libros/view.ctp:106
+msgid "Apellidos"
+msgstr ""
+
+#: Template/Autores/view.ctp:34;51
+#: Template/Libros/view.ctp:103;134
+#: Template/Temas/view.ctp:38;55;112;167;192
+msgid "Id"
+msgstr ""
+
+#: Template/Autores/view.ctp:38;68
+#: Template/Libros/view.ctp:82;107
+#: Template/Temas/view.ctp:42;72;195
+msgid "Created"
+msgstr ""
+
+#: Template/Autores/view.ctp:42;69
+#: Template/Libros/view.ctp:86;108
+#: Template/Temas/view.ctp:46;73;196
+msgid "Modified"
+msgstr ""
+
+#: Template/Autores/view.ctp:47
+#: Template/Temas/view.ctp:51
+msgid "Related Libros"
+msgstr ""
+
+#: Template/Autores/view.ctp:52
+#: Template/Libros/view.ctp:26
+#: Template/Temas/view.ctp:56
+msgid "Autor"
+msgstr ""
+
+#: Template/Autores/view.ctp:53
+#: Template/Libros/view.ctp:30
+#: Template/Temas/view.ctp:57
+msgid "Titulo"
+msgstr ""
+
+#: Template/Autores/view.ctp:54
+#: Template/Libros/view.ctp:34
+#: Template/Temas/view.ctp:58
+msgid "Traductor"
+msgstr ""
+
+#: Template/Autores/view.ctp:55
+#: Template/Libros/view.ctp:38
+#: Template/Temas/view.ctp:59
+msgid "Ciudad"
+msgstr ""
+
+#: Template/Autores/view.ctp:56
+#: Template/Libros/view.ctp:66
+#: Template/Temas/view.ctp:60
+msgid "Anio Edicion"
+msgstr ""
+
+#: Template/Autores/view.ctp:57
+#: Template/Temas/view.ctp:61
+msgid "Edicion"
+msgstr ""
+
+#: Template/Autores/view.ctp:58
+#: Template/Temas/view.ctp:62
+msgid "Primera Edicion"
+msgstr ""
+
+#: Template/Autores/view.ctp:59
+#: Template/Libros/view.ctp:46
+#: Template/Temas/view.ctp:63
+msgid "Editorial"
+msgstr ""
+
+#: Template/Autores/view.ctp:60
+#: Template/Temas/view.ctp:64;121;168
+msgid "Tema Id"
+msgstr ""
+
+#: Template/Autores/view.ctp:61
+#: Template/Libros/view.ctp:54
+#: Template/Temas/view.ctp:65
+msgid "Tipo"
+msgstr ""
+
+#: Template/Autores/view.ctp:62
+#: Template/Temas/view.ctp:66
+msgid "Topografia"
+msgstr ""
+
+#: Template/Autores/view.ctp:63
+#: Template/Libros/view.ctp:74
+#: Template/Temas/view.ctp:67
+msgid "Paginas"
+msgstr ""
+
+#: Template/Autores/view.ctp:64
+#: Template/Libros/view.ctp:78
+#: Template/Temas/view.ctp:68
+msgid "Tomos"
+msgstr ""
+
+#: Template/Autores/view.ctp:65
+#: Template/Libros/view.ctp:62
+#: Template/Temas/view.ctp:69
+msgid "Idioma"
+msgstr ""
+
+#: Template/Autores/view.ctp:66
+#: Template/Libros/view.ctp:95
+#: Template/Temas/view.ctp:70
+msgid "Observaciones"
+msgstr ""
+
+#: Template/Autores/view.ctp:67
+#: Template/Libros/view.ctp:90
+#: Template/Temas/view.ctp:71
+msgid "Baja"
+msgstr ""
+
+#: Template/Layout/error.ctp:35
+#: Template/Error/error400.ctp:36
+#: Template/Error/error500.ctp:41
+msgid "Error"
+msgstr ""
+
+#: Template/Layout/error.ctp:43
+msgid "Back"
+msgstr ""
+
+#: Template/Libros/add.ctp:11
+#: Template/Libros/edit.ctp:17
+#: Template/Libros/index.ctp:11
+#: Template/Libros/view.ctp:14
+#: Template/Temas/add.ctp:10
+#: Template/Temas/edit.ctp:16
+#: Template/Temas/view.ctp:12
+msgid "List Temas"
+msgstr ""
+
+#: Template/Libros/add.ctp:12
+#: Template/Libros/edit.ctp:18
+#: Template/Libros/index.ctp:12
+#: Template/Libros/view.ctp:15
+#: Template/Temas/index.ctp:10
+#: Template/Temas/view.ctp:13
+msgid "New Tema"
+msgstr ""
+
+#: Template/Libros/add.ctp:15
+#: Template/Libros/edit.ctp:21
+#: Template/Libros/index.ctp:15
+#: Template/Libros/view.ctp:18
+msgid "List Old Autores"
+msgstr ""
+
+#: Template/Libros/add.ctp:16
+#: Template/Libros/edit.ctp:22
+#: Template/Libros/index.ctp:16
+msgid "New Old Autore"
+msgstr ""
+
+#: Template/Libros/add.ctp:22
+msgid "Add Libro"
+msgstr ""
+
+#: Template/Libros/edit.ctp:28
+#: Template/Libros/view.ctp:10
+msgid "Edit Libro"
+msgstr ""
+
+#: Template/Libros/index.ctp:20
+msgid "Libros"
+msgstr ""
+
+#: Template/Libros/view.ctp:11
+msgid "Delete Libro"
+msgstr ""
+
+#: Template/Libros/view.ctp:19
+msgid "New Old Autor"
+msgstr ""
+
+#: Template/Libros/view.ctp:42
+msgid "Edición"
+msgstr ""
+
+#: Template/Libros/view.ctp:50
+#: Template/Temas/view.ctp:30;193
+msgid "Tema"
+msgstr ""
+
+#: Template/Libros/view.ctp:58
+msgid "Topografía"
+msgstr ""
+
+#: Template/Libros/view.ctp:70
+msgid "Primera Edición"
+msgstr ""
+
+#: Template/Libros/view.ctp:91
+msgid "Yes"
+msgstr ""
+
+#: Template/Libros/view.ctp:91
+msgid "No"
+msgstr ""
+
+#: Template/Libros/view.ctp:99
+msgid "Related Autores"
+msgstr ""
+
+#: Template/Libros/view.ctp:130
+msgid "Related Old Autores"
+msgstr ""
+
+#: Template/Libros/view.ctp:135
+msgid "AuNombre"
+msgstr ""
+
+#: Template/Libros/view.ctp:137
+msgid "Apellido"
+msgstr ""
+
+#: Template/Libros/view.ctp:138
+msgid "AuTimeStamp"
+msgstr ""
+
+#: Template/Temas/add.ctp:11
+#: Template/Temas/edit.ctp:17
+#: Template/Temas/view.ctp:14
+msgid "List Parent Temas"
+msgstr ""
+
+#: Template/Temas/add.ctp:12
+#: Template/Temas/edit.ctp:18
+#: Template/Temas/view.ctp:15
+msgid "New Parent Tema"
+msgstr ""
+
+#: Template/Temas/add.ctp:15
+#: Template/Temas/edit.ctp:21
+#: Template/Temas/index.ctp:13
+#: Template/Temas/view.ctp:18
+msgid "List Old Libros"
+msgstr ""
+
+#: Template/Temas/add.ctp:16
+#: Template/Temas/edit.ctp:22
+#: Template/Temas/index.ctp:14
+#: Template/Temas/view.ctp:19
+msgid "New Old Libro"
+msgstr ""
+
+#: Template/Temas/add.ctp:17
+#: Template/Temas/edit.ctp:23
+#: Template/Temas/index.ctp:15
+#: Template/Temas/view.ctp:20
+msgid "List Old Subtemas"
+msgstr ""
+
+#: Template/Temas/add.ctp:18
+#: Template/Temas/edit.ctp:24
+#: Template/Temas/index.ctp:16
+#: Template/Temas/view.ctp:21
+msgid "New Old Subtema"
+msgstr ""
+
+#: Template/Temas/add.ctp:24
+msgid "Add Tema"
+msgstr ""
+
+#: Template/Temas/edit.ctp:30
+#: Template/Temas/view.ctp:10
+msgid "Edit Tema"
+msgstr ""
+
+#: Template/Temas/index.ctp:20
+msgid "Temas"
+msgstr ""
+
+#: Template/Temas/view.ctp:11
+msgid "Delete Tema"
+msgstr ""
+
+#: Template/Temas/view.ctp:22
+msgid "List Child Temas"
+msgstr ""
+
+#: Template/Temas/view.ctp:23
+msgid "New Child Tema"
+msgstr ""
+
+#: Template/Temas/view.ctp:34
+msgid "Parent Tema"
+msgstr ""
+
+#: Template/Temas/view.ctp:108
+msgid "Related Old Libros"
+msgstr ""
+
+#: Template/Temas/view.ctp:113
+msgid "LAutor"
+msgstr ""
+
+#: Template/Temas/view.ctp:114
+msgid "LTitulo"
+msgstr ""
+
+#: Template/Temas/view.ctp:115
+msgid "LTraductor"
+msgstr ""
+
+#: Template/Temas/view.ctp:116
+msgid "LCiudad"
+msgstr ""
+
+#: Template/Temas/view.ctp:117
+msgid "LAnioEdicion"
+msgstr ""
+
+#: Template/Temas/view.ctp:118
+msgid "LEdicion"
+msgstr ""
+
+#: Template/Temas/view.ctp:119
+msgid "LPrimeraEdicion"
+msgstr ""
+
+#: Template/Temas/view.ctp:120
+msgid "LEditorial"
+msgstr ""
+
+#: Template/Temas/view.ctp:122
+msgid "Subtema Id"
+msgstr ""
+
+#: Template/Temas/view.ctp:123
+msgid "LTipo"
+msgstr ""
+
+#: Template/Temas/view.ctp:124
+msgid "LTopografia"
+msgstr ""
+
+#: Template/Temas/view.ctp:125
+msgid "LPaginas"
+msgstr ""
+
+#: Template/Temas/view.ctp:126
+msgid "LTomos"
+msgstr ""
+
+#: Template/Temas/view.ctp:127
+msgid "LIdioma"
+msgstr ""
+
+#: Template/Temas/view.ctp:128
+msgid "LObservaciones"
+msgstr ""
+
+#: Template/Temas/view.ctp:129
+msgid "LBaja"
+msgstr ""
+
+#: Template/Temas/view.ctp:163
+msgid "Related Old Subtemas"
+msgstr ""
+
+#: Template/Temas/view.ctp:169
+msgid "Subtema"
+msgstr ""
+
+#: Template/Temas/view.ctp:188
+msgid "Related Temas"
+msgstr ""
+
+#: Template/Temas/view.ctp:194
+msgid "Parent Id"
+msgstr ""
+
+#: Template/Error/error400.ctp:37
+msgid "The requested address {0} was not found on this server."
+msgstr ""
+
+#: Template/Error/error500.ctp:39
+msgid "An Internal Error Has Occurred"
+msgstr ""
+
+#: Controller/Component/AuthComponent.php:494
+msgid "You are not authorized to access that location."
+msgstr ""
+
+#: Controller/Component/CsrfComponent.php:157
+#: Http/Middleware/CsrfProtectionMiddleware.php:190
+msgid "Missing CSRF token cookie"
+msgstr ""
+
+#: Controller/Component/CsrfComponent.php:161
+#: Http/Middleware/CsrfProtectionMiddleware.php:194
+msgid "CSRF token mismatch."
+msgstr ""
+
+#: Error/ExceptionRenderer.php:258
+msgid "Not Found"
+msgstr ""
+
+#: Error/ExceptionRenderer.php:260
+msgid "An Internal Error Has Occurred."
+msgstr ""
+
+#: Http/Response.php:2400
+msgid "The requested file contains `..` and will not be read."
+msgstr ""
+
+#: Http/Response.php:2411
+msgid "The requested file was not found"
+msgstr ""
+
+#: I18n/Number.php:90
+msgid "{0,number,#,###.##} KB"
+msgstr ""
+
+#: I18n/Number.php:92
+msgid "{0,number,#,###.##} MB"
+msgstr ""
+
+#: I18n/Number.php:94
+msgid "{0,number,#,###.##} GB"
+msgstr ""
+
+#: I18n/Number.php:96
+msgid "{0,number,#,###.##} TB"
+msgstr ""
+
+#: I18n/Number.php:88
+msgid "{0,number,integer} Byte"
+msgid_plural "{0,number,integer} Bytes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:80
+msgid "{0} from now"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:80
+msgid "{0} ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:83
+msgid "{0} after"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:83
+msgid "{0} before"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:114
+msgid "just now"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:151
+msgid "about a second ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:152
+msgid "about a minute ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:153
+msgid "about an hour ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:154;332
+msgid "about a day ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:155;333
+msgid "about a week ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:156;334
+msgid "about a month ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:157;335
+msgid "about a year ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:168
+msgid "in about a second"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:169
+msgid "in about a minute"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:170
+msgid "in about an hour"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:171;346
+msgid "in about a day"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:172;347
+msgid "in about a week"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:173;348
+msgid "in about a month"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:174;349
+msgid "in about a year"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:304
+msgid "today"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:370
+msgid "%s ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:371
+msgid "on %s"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:47;126;316
+msgid "{0} year"
+msgid_plural "{0} years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:51;129;319
+msgid "{0} month"
+msgid_plural "{0} months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:57;132;322
+msgid "{0} week"
+msgid_plural "{0} weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:59;135;325
+msgid "{0} day"
+msgid_plural "{0} days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:64;138
+msgid "{0} hour"
+msgid_plural "{0} hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:68;141
+msgid "{0} minute"
+msgid_plural "{0} minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:72;144
+msgid "{0} second"
+msgid_plural "{0} seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ORM/RulesChecker.php:57
+msgid "This value is already in use"
+msgstr ""
+
+#: ORM/RulesChecker.php:104
+msgid "This value does not exist"
+msgstr ""
+
+#: ORM/RulesChecker.php:128
+msgid "The count does not match {0}{1}"
+msgstr ""
+
+#: Utility/Text.php:915
+msgid "and"
+msgstr ""
+
+#: Validation/Validator.php:111
+msgid "This field is required"
+msgstr ""
+
+#: Validation/Validator.php:112
+msgid "This field cannot be left empty"
+msgstr ""
+
+#: Validation/Validator.php:1885
+msgid "The provided value is invalid"
+msgstr ""
+
+#: View/Helper/FormHelper.php:1039
+msgid "New %s"
+msgstr ""
+
+#: View/Helper/FormHelper.php:1042
+msgid "Edit %s"
+msgstr ""
+
+#: View/Helper/HtmlHelper.php:795
+msgid "Home"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:540
+msgid "January"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:541
+msgid "February"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:542
+msgid "March"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:543
+msgid "April"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:544
+msgid "May"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:545
+msgid "June"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:546
+msgid "July"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:547
+msgid "August"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:548
+msgid "September"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:549
+msgid "October"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:550
+msgid "November"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:551
+msgid "December"
+msgstr ""
+
