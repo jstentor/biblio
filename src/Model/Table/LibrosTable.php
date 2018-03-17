@@ -37,7 +37,7 @@ class LibrosTable extends Table
         parent::initialize($config);
 
         $this->setTable('libros');
-        $this->setDisplayField('id');
+        $this->setDisplayField('titulo');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');

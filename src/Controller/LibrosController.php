@@ -21,7 +21,11 @@ class LibrosController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Temas']
+            'sortWhitelist' => [
+                'Temas.tema', 'nombreautor', 'titulo', 'idioma'
+            ],
+            'contain' => ['Temas'],
+            'order' => ['nombreautor' => 'ASC']
         ];
         $libros = $this->paginate($this->Libros);
 

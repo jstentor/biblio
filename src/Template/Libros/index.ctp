@@ -12,8 +12,6 @@
         <li><?= $this->Html->link(__('New Tema'), ['controller' => 'Temas', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Autores'), ['controller' => 'Autores', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Autor'), ['controller' => 'Autores', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Old Autores'), ['controller' => 'OldAutores', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Old Autore'), ['controller' => 'OldAutores', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="libros index large-9 medium-8 columns content">
@@ -21,19 +19,19 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('autor') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('nombreautor', 'Autor') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('titulo') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('tema_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Temas.tema','Tema') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('idioma') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
+                <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($libros as $libro): ?>
             <tr>
-                <td><?= h($libro->autor) ?></td>
+                <td><?= h($libro->nombreautor) ?></td>
                 <td><?= h($libro->titulo) ?></td>
-                <td><?= $libro->has('tema') ? $this->Html->link($libro->tema->id, ['controller' => 'Temas', 'action' => 'view', $libro->tema->id]) : '' ?></td>
+                <td><?= $libro->has('tema') ? $this->Html->link($libro->tema->tema, ['controller' => 'Temas', 'action' => 'view', $libro->tema->id]) : '' ?></td>
                 <td><?= h($libro->idioma) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $libro->id]) ?>

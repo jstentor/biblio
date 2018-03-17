@@ -27,7 +27,7 @@
     <fieldset>
         <legend><?= __('Edit Libro') ?></legend>
         <?php
-            echo $this->Form->control('autor');
+            echo $this->Form->control('nombreautor', ['label' => 'Nombre del autor']);
             echo $this->Form->control('titulo');
             echo $this->Form->control('traductor');
             echo $this->Form->control('ciudad');
@@ -44,7 +44,6 @@
             echo $this->Form->control('observaciones');
             echo $this->Form->control('baja');
             echo $this->Form->control('autores._ids', ['options' => $autores]);
-            echo $this->Form->control('old_autores._ids', ['options' => $oldAutores]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
