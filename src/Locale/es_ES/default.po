@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "POT-Creation-Date: 2018-03-14 13:44+0000\n"
-"PO-Revision-Date: 2018-03-14 17:38+0100\n"
+"PO-Revision-Date: 2018-03-17 20:04+0100\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
@@ -50,6 +50,9 @@ msgstr "El libro no se pudo borrar. Por favor, inténtelo de nuevo."
 #: Controller/TemasController.php:58;83
 msgid "The tema has been saved."
 msgstr "El tema se ha guardado."
+
+msgid "parent"
+msgstr "tema padre"
 
 #: Controller/TemasController.php:62;87
 msgid "The tema could not be saved. Please, try again."
@@ -125,9 +128,7 @@ msgstr "¿Está seguro de querer borrar el registro nº {0}?"
 
 #: Template/Autores/edit.ctp:24 Template/Autores/view.ctp:10
 msgid "Edit Autor"
-msgstr ""
-"Editar A\n"
-"utor"
+msgstr "Editar Autor"
 
 #: Template/Autores/index.ctp:10 Template/Autores/view.ctp:13
 #: Template/Libros/add.ctp:14 Template/Libros/edit.ctp:20
@@ -183,6 +184,10 @@ msgstr "Borrar Autor"
 
 #: Template/Autores/view.ctp:22 Template/Libros/view.ctp:104
 msgid "Ape Nom"
+msgstr "Apellidos y nombre"
+
+#: Template/Autores/view.ctp:22 Template/Libros/view.ctp:104
+msgid "Nombreautor"
 msgstr "Apellidos y nombre"
 
 #: Template/Autores/view.ctp:26 Template/Libros/view.ctp:105;136
