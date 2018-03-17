@@ -39,7 +39,7 @@ class TemasTable extends Table
         parent::initialize($config);
 
         $this->setTable('temas');
-        $this->setDisplayField('id');
+        $this->setDisplayField('tema');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');

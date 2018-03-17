@@ -21,7 +21,11 @@ class TemasController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['ParentTemas']
+            'contain' => ['ParentTemas'],
+            'sortWhitelist' => [
+                'ParentTemas.tema', 'tema'
+            ],
+            'TemaPadre' => ['ParentTemas.tema' => 'ASC', 'tema' => 'ASC']
         ];
         $temas = $this->paginate($this->Temas);
 
@@ -38,7 +42,7 @@ class TemasController extends AppController
     public function view($id = null)
     {
         $tema = $this->Temas->get($id, [
-            'contain' => ['ParentTemas', 'Libros', 'OldLibros', 'OldSubtemas', 'ChildTemas']
+            'contain' => ['ParentTemas', 'Libros', 'ChildTemas']
         ]);
 
         $this->set('tema', $tema);

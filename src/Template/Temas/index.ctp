@@ -10,10 +10,6 @@
         <li><?= $this->Html->link(__('New Tema'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Libros'), ['controller' => 'Libros', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Libro'), ['controller' => 'Libros', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Old Libros'), ['controller' => 'OldLibros', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Old Libro'), ['controller' => 'OldLibros', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Old Subtemas'), ['controller' => 'OldSubtemas', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Old Subtema'), ['controller' => 'OldSubtemas', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="temas index large-9 medium-8 columns content">
@@ -21,22 +17,16 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('tema') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('parent_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('ParentTemas.tema', 'Tema padre') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($temas as $tema): ?>
             <tr>
-                <td><?= $this->Number->format($tema->id) ?></td>
                 <td><?= h($tema->tema) ?></td>
-                <td><?= $tema->has('parent_tema') ? $this->Html->link($tema->parent_tema->id, ['controller' => 'Temas', 'action' => 'view', $tema->parent_tema->id]) : '' ?></td>
-                <td><?= h($tema->created) ?></td>
-                <td><?= h($tema->modified) ?></td>
+                <td><?= $tema->has('parent_tema') ? $this->Html->link($tema->parent_tema->tema, ['controller' => 'Temas', 'action' => 'view', $tema->parent_tema->id]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $tema->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $tema->id]) ?>

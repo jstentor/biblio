@@ -30,7 +30,7 @@
         <legend><?= __('Edit Tema') ?></legend>
         <?php
             echo $this->Form->control('tema');
-            echo $this->Form->control('parent_id', ['options' => $parentTemas, 'empty' => true]);
+            echo $this->Form->control('parent_id', ['options' => $parentTemas, 'empty' => true, 'label' => 'Tema padre']);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
