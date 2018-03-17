@@ -17,24 +17,16 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('ape_nom') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('nombre') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('apellidos') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($autores as $autor): ?>
             <tr>
-                <td><?= $this->Number->format($autor->id) ?></td>
-                <td><?= h($autor->ape_nom) ?></td>
                 <td><?= h($autor->nombre) ?></td>
                 <td><?= h($autor->apellidos) ?></td>
-                <td><?= h($autor->created) ?></td>
-                <td><?= h($autor->modified) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $autor->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $autor->id]) ?>

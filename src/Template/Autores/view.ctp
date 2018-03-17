@@ -16,7 +16,7 @@
     </ul>
 </nav>
 <div class="autores view large-9 medium-8 columns content">
-    <h3><?= h($autor->id) ?></h3>
+    <h3><?= h($autor->ape_nom) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Ape Nom') ?></th>
@@ -29,10 +29,6 @@
         <tr>
             <th scope="row"><?= __('Apellidos') ?></th>
             <td><?= h($autor->apellidos) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($autor->id) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Created') ?></th>
@@ -48,48 +44,14 @@
         <?php if (!empty($autor->libros)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Autor') ?></th>
                 <th scope="col"><?= __('Titulo') ?></th>
-                <th scope="col"><?= __('Traductor') ?></th>
-                <th scope="col"><?= __('Ciudad') ?></th>
-                <th scope="col"><?= __('Anio Edicion') ?></th>
-                <th scope="col"><?= __('Edicion') ?></th>
-                <th scope="col"><?= __('Primera Edicion') ?></th>
-                <th scope="col"><?= __('Editorial') ?></th>
-                <th scope="col"><?= __('Tema Id') ?></th>
-                <th scope="col"><?= __('Tipo') ?></th>
-                <th scope="col"><?= __('Topografia') ?></th>
-                <th scope="col"><?= __('Paginas') ?></th>
-                <th scope="col"><?= __('Tomos') ?></th>
-                <th scope="col"><?= __('Idioma') ?></th>
-                <th scope="col"><?= __('Observaciones') ?></th>
-                <th scope="col"><?= __('Baja') ?></th>
-                <th scope="col"><?= __('Created') ?></th>
-                <th scope="col"><?= __('Modified') ?></th>
+                <th scope="col"><?= __('Tema') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($autor->libros as $libros): ?>
             <tr>
-                <td><?= h($libros->id) ?></td>
-                <td><?= h($libros->autor) ?></td>
-                <td><?= h($libros->titulo) ?></td>
-                <td><?= h($libros->traductor) ?></td>
-                <td><?= h($libros->ciudad) ?></td>
-                <td><?= h($libros->anio_edicion) ?></td>
-                <td><?= h($libros->edicion) ?></td>
-                <td><?= h($libros->primera_edicion) ?></td>
-                <td><?= h($libros->editorial) ?></td>
-                <td><?= h($libros->tema_id) ?></td>
-                <td><?= h($libros->tipo) ?></td>
-                <td><?= h($libros->topografia) ?></td>
-                <td><?= h($libros->paginas) ?></td>
-                <td><?= h($libros->tomos) ?></td>
-                <td><?= h($libros->idioma) ?></td>
-                <td><?= h($libros->observaciones) ?></td>
-                <td><?= h($libros->baja) ?></td>
-                <td><?= h($libros->created) ?></td>
-                <td><?= h($libros->modified) ?></td>
+                <td><?= h($libros->titulo) . ($libros->baja ? ' <em>(baja)</em>' : '') ?></td>
+                <td><?= h($libros->tema->tema) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Libros', 'action' => 'view', $libros->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Libros', 'action' => 'edit', $libros->id]) ?>

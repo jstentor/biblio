@@ -35,7 +35,7 @@ class AutoresController extends AppController
     public function view($id = null)
     {
         $autor = $this->Autores->get($id, [
-            'contain' => ['Libros']
+            'contain' => ['Libros', 'Libros.Temas']
         ]);
 
         $this->set('autor', $autor);
@@ -83,7 +83,7 @@ class AutoresController extends AppController
             }
             $this->Flash->error(__('The autor could not be saved. Please, try again.'));
         }
-        $libros = $this->Autores->Libros->find('list', ['limit' => 200]);
+        $libros = $this->Autores->Libros->find('list', ['limit' => 200, 'order' => ['titulo' => 'ASC']]);
         $this->set(compact('autor', 'libros'));
     }
 

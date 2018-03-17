@@ -36,7 +36,7 @@ class AutoresTable extends Table
         parent::initialize($config);
 
         $this->setTable('autores');
-        $this->setDisplayField('id');
+        $this->setDisplayField('ape_nom');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
