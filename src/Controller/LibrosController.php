@@ -94,6 +94,17 @@ class LibrosController extends AppController
         $temas = $this->Libros->Temas->find('list', ['limit' => 200]);
         $autores = $this->Libros->Autores->find('list', ['limit' => 200]);
         $this->set(compact('libro', 'temas', 'autores'));
+
+        /*
+        $temas = [
+            'Literatura' => [
+                '5' => 'Literatura Anglosajona',
+                '12' => 'Literatura española'
+                ],
+            'Toros' => [
+                '23' => 'Historia'
+            ]
+        ];*/
     }
 
     /**
