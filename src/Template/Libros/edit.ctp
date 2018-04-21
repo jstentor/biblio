@@ -38,12 +38,12 @@
                 echo $this->Form->control('ciudad');
             ?>
         </div>
-        <div class="row"
+        <div class="row">
             <?php
                 echo $this->Form->control('anio_edicion');
                 echo $this->Form->control('edicion');
                 ?>
-            </div>
+        </div>
         <div class="row">
             <?php
                 echo $this->Form->control('primera_edicion');
@@ -51,7 +51,7 @@
                 ?>
         </div>
         <div class="row">
-            <¿php
+            <?php
                 echo $this->Form->control('tema_id', ['options' => $temas, 'empty' => true]);
             ?>
         </div>
@@ -75,18 +75,16 @@
         <div class="row">
             <?php
                 echo $this->Form->control('observaciones');
-            ??
+            ?>
         </div>
         <div class="row">
-        <?ph
+        <?php
             echo $this->Form->control('baja');
             ?>
         </div>
-        <div class="row"><
-            <
-            echo $this->Form->control('autores._ids', ['options' => $autores]);
+        <div class="row">
+            <?php echo $this->Form->control('autores._ids', ['options' => $autores]);     ?>
         </div>
-        ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
