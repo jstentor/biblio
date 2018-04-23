@@ -30,14 +30,6 @@
             <th scope="row"><?= __('Tema padre') ?></th>
             <td><?= $tema->has('parent_tema') ? $this->Html->link($tema->parent_tema->tema, ['controller' => 'Temas', 'action' => 'view', $tema->parent_tema->id]) : '' ?></td>
         </tr>
-        <tr>
-            <th scope="row"><?= __('Created') ?></th>
-            <td><?= h($tema->created) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Modified') ?></th>
-            <td><?= h($tema->modified) ?></td>
-        </tr>
     </table>
     <div class="related">
         <h4><?= __('Related Libros') ?></h4>

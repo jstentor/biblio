@@ -21,7 +21,7 @@ class TemasController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['ParentTemas'],
+            'contain' => ['ParentTemas', 'Libros'],
             'sortWhitelist' => [
                 'ParentTemas.tema', 'tema'
             ],
