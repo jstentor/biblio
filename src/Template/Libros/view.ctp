@@ -22,7 +22,7 @@
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Autor') ?></th>
-            <td colspan="3"><?= h($libro->autor) ?></td>
+            <td colspan="3"><?= h($libro->nombreautor) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Titulo') ?></th>
