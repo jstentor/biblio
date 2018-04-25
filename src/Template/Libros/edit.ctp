@@ -26,64 +26,75 @@
     <?= $this->Form->create($libro) ?>
     <fieldset>
         <legend><?= __('Edit Libro') ?></legend>
+
         <div class="row">
             <?php
-                echo $this->Form->control('nombreautor', ['label' => 'Nombre del autor']);
-                echo $this->Form->control('titulo');
+                echo $this->Form->control('nombreautor', ['label' => 'Nombre del autor', 'templates' => [
+                        'inputContainer' => '<div class="large-6 columns">{{content}}</div>'
+                    ]]);
+                echo $this->Form->control('titulo', ['templates' => [
+                        'inputContainer' => '<div class="large-6 columns">{{content}}</div>'
+                    ]]);
             ?>
         </div>
         <div class="row">
             <?php
-                echo $this->Form->control('traductor');
-                echo $this->Form->control('ciudad');
+                echo $this->Form->control('tema', [ 'templates' => [
+                        'inputContainer' => '<div class="large-6 columns">{{content}}</div>'
+                    ]]);
+                echo $this->Form->control('topografia', ['templates' => [
+                        'inputContainer' => '<div class="large-6 columns">{{content}}</div>'
+                    ]]);
             ?>
         </div>
         <div class="row">
             <?php
-                echo $this->Form->control('anio_edicion');
-                echo $this->Form->control('edicion');
-                ?>
-        </div>
-        <div class="row">
-            <?php
-                echo $this->Form->control('primera_edicion');
-                echo $this->Form->control('editorial');
-                ?>
-        </div>
-        <div class="row">
-            <?php
-                echo $this->Form->control('tema_id', ['options' => $temas, 'empty' => true]);
+                echo $this->Form->control('idioma', [ 'templates' => [
+                        'inputContainer' => '<div class="large-6 columns">{{content}}</div>'
+                    ]]);
+                echo $this->Form->control('traductor', ['templates' => [
+                        'inputContainer' => '<div class="large-6 columns">{{content}}</div>'
+                    ]]);
             ?>
         </div>
         <div class="row">
             <?php
-                echo $this->Form->control('tipo');
-                echo $this->Form->control('topografia');
+                echo $this->Form->control('tipo', [ 'templates' => [
+                        'inputContainer' => '<div class="large-4 columns">{{content}}</div>'
+                    ]]);
+                echo $this->Form->control('editorial', ['templates' => [
+                        'inputContainer' => '<div class="large-4 columns">{{content}}</div>'
+                    ]]);
+                echo $this->Form->control('ciudad', ['templates' => [
+                        'inputContainer' => '<div class="large-4 columns">{{content}}</div>'
+                    ]]);
             ?>
         </div>
         <div class="row">
             <?php
-                echo $this->Form->control('paginas');
-                echo $this->Form->control('tomos');
+                echo $this->Form->control('edicion', [ 'templates' => [
+                        'inputContainer' => '<div class="large-4 columns">{{content}}</div>'
+                    ]]);
+                echo $this->Form->control('anio_edicion', ['templates' => [
+                        'inputContainer' => '<div class="large-4 columns">{{content}}</div>'
+                    ]]);
+                echo $this->Form->control('primera_edicion', ['templates' => [
+                        'inputContainer' => '<div class="large-4 columns">{{content}}</div>'
+                    ]]);
             ?>
-        </div>
-        <div class="row">
-            <?php 
-                echo $this->Form->control('idioma');
-                ?>
         </div>
         <div class="row">
             <?php
-                echo $this->Form->control('observaciones');
+                echo $this->Form->control('paginas', [ 'templates' => [
+                        'inputContainer' => '<div class="large-4 columns">{{content}}</div>'
+                    ]]);
+                echo $this->Form->control('tomos', ['templates' => [
+                        'inputContainer' => '<div class="large-4 columns">{{content}}</div>'
+                    ]]);
+                echo $this->Form->control('baja', ['templates' => [
+                        'inputContainer' => '<div class="large-4 columns">{{content}}</div>'
+                    ]]);
             ?>
-        </div>
-        <div class="row">
-        <?php
-            echo $this->Form->control('baja');
-            ?>
-        </div>
-        <div class="row">
-            <?php echo $this->Form->control('autores._ids', ['options' => $autores]);     ?>
         </div>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
