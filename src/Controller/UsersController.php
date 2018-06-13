@@ -12,6 +12,16 @@ use App\Controller\AppController;
  */
 class UsersController extends AppController
 {
+    /**
+     * Initialize method
+     *
+     * @return void
+     */
+    public function initialize()
+    {
+        parent::initialize();
+        $this->Auth->allow(['logout']);
+    }
 
     /**
      * Index method
@@ -103,5 +113,35 @@ class UsersController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    /**
+     * Login method
+     *
+     * @param null
+     * @return \Cake\Http\Response|null 
+     */
+     public function login()
+    {
+        if ($this->request->is('post')) {
+            $user = $this->Auth->identify();
+            if ($user) {
+                $this->Auth->setUser($user);
+                return $this->redirect($this->Auth->redirectUrl());
+            }
+            $this->Flash->error('Tu usuario o contraseña son incorrectos.');
+        }
+    }
+
+    /**
+     * Logout method
+     *
+     * @param null
+     * @return \Cake\Http\Response|null 
+     */
+    public function logout()
+    {
+        $this->Flash->success('Te has desconectado.');
+        return $this->redirect($this->Auth->logout());
     }
 }

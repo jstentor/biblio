@@ -1,6 +1,7 @@
 <?php
 namespace App\Model\Entity;
 
+use Cake\Auth\DefaultPasswordHasher;
 use Cake\ORM\Entity;
 
 /**
@@ -39,4 +40,19 @@ class User extends Entity
     protected $_hidden = [
         'password'
     ];
+
+    /**
+    * Función que encripta la contraseña
+    *
+    * @param string|null $value Contraseña. 
+    * @return string|null Contraseña encriptada. 
+    */
+    protected function _setPassword($value)
+    {
+        if (strlen($value)) {
+            $hasher = new DefaultPasswordHasher();
+
+            return $hasher->hash($value);
+        }
+    }
 }
