@@ -26,37 +26,39 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css('foundation.css') ?>
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('cake.css') ?>
+    <?= $this->Html->css(['foundation.6.4.2', 'base', 'cake']) ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <nav class="top-bar expanded" data-topbar role="navigation">
-        <ul class="title-area large-3 medium-4 columns">
-            <li class="name">
-                <h1><a href=""><?= $this->fetch('title') ?></a></h1>
-            </li>
-        </ul>
-        <div class="top-bar-section">
-            <ul class="right">
-                <?php 
-                if (!empty($logged_user))
-                { 
-                   echo ('<li>' .
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <h3>Biblioteca</h3>
+
+            </div>
+            <div class="top-bar-right">
+              <ul class="menu">
+                 <li><a href="#">Libros</a></li>
+                 <li><a href="#">Autores</a></li>
+                 <li><a href="#">Revistas</a></li>
+                 <li><a href="#">Four</a></li>
+                 <?php 
+                 if (!empty($logged_user))
+                 { 
+                     echo ('<li>' .
                         $this->Html->link(__("$logged_user: Logout"), ['controller' => 'users','action' => 'logout']));
-                } 
-                else
-                {
+                 } 
+                 else
+                 {
                     echo ('<li>' .  $this->Html->link(__('Login'), ['controller' => 'users','action' => 'login']) . '</li>');
                 }
                 ?>
             </ul>
         </div>
-    </nav>
+    </div>
+
     <?= $this->Flash->render() ?>
     <div class="container clearfix">
         <?= $this->fetch('content') ?>

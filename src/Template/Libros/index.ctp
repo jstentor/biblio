@@ -4,17 +4,18 @@
  * @var \App\Model\Entity\Libro[]|\Cake\Collection\CollectionInterface $libros
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Libro'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Temas'), ['controller' => 'Temas', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Tema'), ['controller' => 'Temas', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Autores'), ['controller' => 'Autores', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Autor'), ['controller' => 'Autores', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="libros index large-9 medium-8 columns content">
+<div class="grid-x">
+    <div>
+        <ul class="vertical menu">
+          <li class="heading"><?= __('Actions') ?></li>
+          <li><?= $this->Html->link(__('New Libro'), ['action' => 'add']) ?></li>
+          <li><?= $this->Html->link(__('List Temas'), ['controller' => 'Temas', 'action' => 'index']) ?></li>
+          <li><?= $this->Html->link(__('New Tema'), ['controller' => 'Temas', 'action' => 'add']) ?></li>
+          <li><?= $this->Html->link(__('List Autores'), ['controller' => 'Autores', 'action' => 'index']) ?></li>
+          <li><?= $this->Html->link(__('New Autor'), ['controller' => 'Autores', 'action' => 'add']) ?></li>
+      </ul>
+  </div>
+  <div class="libros index large-9 medium-8 columns content">
     <h3><?= __('Libros') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
@@ -28,17 +29,17 @@
         </thead>
         <tbody>
             <?php foreach ($libros as $libro): ?>
-            <tr>
-                <td><?= h($libro->nombreautor) ?></td>
-                <td><?= h($libro->titulo) ?></td>
-                <td><?= $libro->has('tema') ? $this->Html->link($libro->tema->tema, ['controller' => 'Temas', 'action' => 'view', $libro->tema->id]) : '' ?></td>
-                <td><?= h($libro->idioma) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $libro->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $libro->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $libro->id], ['confirm' => __('Are you sure you want to delete # {0}?', $libro->id)]) ?>
-                </td>
-            </tr>
+                <tr>
+                    <td><?= h($libro->nombreautor) ?></td>
+                    <td><?= h($libro->titulo) ?></td>
+                    <td><?= $libro->has('tema') ? $this->Html->link($libro->tema->tema, ['controller' => 'Temas', 'action' => 'view', $libro->tema->id]) : '' ?></td>
+                    <td><?= h($libro->idioma) ?></td>
+                    <td class="actions">
+                        <?= $this->Html->link(__('View'), ['action' => 'view', $libro->id]) ?>
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $libro->id]) ?>
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $libro->id], ['confirm' => __('Are you sure you want to delete # {0}?', $libro->id)]) ?>
+                    </td>
+                </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
@@ -53,3 +54,4 @@
         <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
     </div>
 </div>
+
