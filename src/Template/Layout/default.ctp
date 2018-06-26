@@ -35,6 +35,28 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('script') ?>
 </head>
 <body>
+    <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+            <li class="name">
+                <h1><a href="#">Biblioteca</a></h1>
+            </li>
+        </ul>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li><?= empty($logged_user) ?
+                    $this->Html->link(__('Login'), ['controller' => 'users','action' => 'login']) :
+                    $this->Html->link(__("$logged_user: Logout"), ['controller' => 'users','action' => 'logout']); ?></li>
+            </ul>
+
+            <!-- Left Nav Section 
+            <ul class="left">
+                <li><a href="#">Left Nav Button</a></li>
+            </ul>-->
+        </section>
+    </nav>
+
     <nav class="top-bar expanded" data-topbar role="navigation">
         <ul class="title-area large-3 medium-4 columns">
             <li class="name">
@@ -42,26 +64,16 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </li>
         </ul>
         <div class="top-bar-section">
-            <ul class="right">
-                <?php 
-                if (!empty($logged_user))
-                { 
-                   echo ('<li>' .
-                        $this->Html->link(__("$logged_user: Logout"), ['controller' => 'users','action' => 'logout']));
-                } 
-                else
-                {
-                    echo ('<li>' .  $this->Html->link(__('Login'), ['controller' => 'users','action' => 'login']) . '</li>');
-                }
-                ?>
-            </ul>
-        </div>
-    </nav>
-    <?= $this->Flash->render() ?>
-    <div class="container clearfix">
-        <?= $this->fetch('content') ?>
-    </div>
-    <footer>
-    </footer>
+        <ul class="right">
+        
+        </ul>
+</div>
+</nav>
+<?= $this->Flash->render() ?>
+<div class="container clearfix">
+    <?= $this->fetch('content') ?>
+</div>
+<footer>
+</footer>
 </body>
 </html>
