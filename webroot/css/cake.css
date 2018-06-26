@@ -326,9 +326,21 @@ pre {
     background: #116d76;
 }
 
+.top-bar.expanded.claro .title-area {
+    background: #444444;
+}
+
+.top-bar.expanded.claro, .top-bar.claro,.top-bar-section.claro ul li,.top-bar2-section.claro li:not(.has-form) a:not(.button) {
+    background: #222222;
+}
+
 .top-bar-section li:not(.has-form) a:not(.button):hover {
     background-color: #308e97;
     background: #308e97;
+}
+.top-bar-section.claro li:not(.has-form) a:not(.button):hover {
+    background-color: 222222;
+    background: 222222;
 }
 
 .side-nav li.heading {
