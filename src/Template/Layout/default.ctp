@@ -37,33 +37,33 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <div class="top-bar-left">
             <h3>Biblioteca</h3>
 
-            </div>
-            <div class="top-bar-right">
-              <ul class="menu">
-                 <li><a href="#">Libros</a></li>
-                 <li><a href="#">Autores</a></li>
-                 <li><a href="#">Revistas</a></li>
-                 <li><a href="#">Four</a></li>
-                 <?php 
-                 if (!empty($logged_user))
-                 { 
-                     echo ('<li>' .
-                        $this->Html->link(__("$logged_user: Logout"), ['controller' => 'users','action' => 'logout']));
-                 } 
-                 else
-                 {
-                    echo ('<li>' .  $this->Html->link(__('Login'), ['controller' => 'users','action' => 'login']) . '</li>');
-                }
-                ?>
-            </ul>
         </div>
-    </div>
+        <div class="top-bar-right">
+          <ul class="menu">
+           <li><a href="#">Libros</a></li>
+           <li><a href="#">Autores</a></li>
+           <li><a href="#">Revistas</a></li>
+           <li><a href="#">Four</a></li>
+           <?php 
+           if (!empty($logged_user))
+           { 
+               echo ('<li>' .
+                $this->Html->link(__("$logged_user: Logout"), ['controller' => 'users','action' => 'logout']));
+           } 
+           else
+           {
+            echo ('<li>' .  $this->Html->link(__('Login'), ['controller' => 'users','action' => 'login']) . '</li>');
+        }
+        ?>
+    </ul>
+</div>
+</div>
 
-    <?= $this->Flash->render() ?>
-    <div class="container clearfix">
-        <?= $this->fetch('content') ?>
-    </div>
-    <footer>
-    </footer>
+<?= $this->Flash->render() ?>
+<div class="container clearfix">
+    <?= $this->fetch('content') ?>
+</div>
+<footer>
+</footer>
 </body>
 </html>
