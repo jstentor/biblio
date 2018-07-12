@@ -4,7 +4,7 @@
  * @var \App\Model\Entity\Libro[]|\Cake\Collection\CollectionInterface $libros
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
+<nav class="large-2 medium-3 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Libro'), ['action' => 'add']) ?></li>
@@ -14,7 +14,7 @@
         <li><?= $this->Html->link(__('New Autor'), ['controller' => 'Autores', 'action' => 'add']) ?></li>
     </ul>
 </nav>
-<div class="libros index large-9 medium-8 columns content">
+<div class="libros index large-10 medium-9 columns content">
     <h3><?= __('Libros') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
