@@ -4,7 +4,7 @@
  * @var \App\Model\Entity\Tema $tema
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
+<nav class="large-2 medium-3 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('Edit Tema'), ['action' => 'edit', $tema->id]) ?> </li>
@@ -19,7 +19,7 @@
         <li><?= $this->Html->link(__('New Child Tema'), ['controller' => 'Temas', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
-<div class="temas view large-9 medium-8 columns content">
+<div class="temas view large-10 medium-9 columns content">
     <h3><?= h($tema->tema) ?></h3>
     <table class="vertical-table">
         <tr>

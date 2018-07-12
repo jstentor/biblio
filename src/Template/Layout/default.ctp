@@ -33,10 +33,34 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <div class="top-bar">
-        <div class="top-bar-left">
-            <h3>Biblioteca</h3>
+    <nav class="top-bar claro" data-topbar role="navigation">
+        <ul class="title-area">
+            <li class="name">
+                <h1><a href="#">Biblioteca</a></h1>
+            </li>
+        </ul>
+    </nav>
 
+    <nav class="top-bar expanded" data-topbar role="navigation">
+        <ul class="title-area large-2 medium-3 columns">
+            <li class="name">
+                <h1><a href=""><?= $this->fetch('title') ?></a></h1>
+            </li>
+        </ul>
+        <div class="top-bar-section">
+            <ul class="left">
+                <li class="active"><?= $this->Html->link(__('Libros'), ['controller' => 'libros']) ?></li>
+                <li><?= $this->Html->link(__('Autores'), ['controller' => 'autores']) ?></li>
+                <li><?= $this->Html->link(__('Temas'), ['controller' => 'temas']) ?></li>
+            </ul>
+
+            <ul class="right">
+                <ul class="right">
+                    <li><?= empty($logged_user) ?
+                    $this->Html->link(__('Login'), ['controller' => 'users','action' => 'login']) :
+                    $this->Html->link(__("$logged_user: Logout"), ['controller' => 'users','action' => 'logout']); ?></li>
+                </ul>
+            </ul>
         </div>
         <div class="top-bar-right">
           <ul class="menu">
