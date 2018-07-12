@@ -26,7 +26,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css(['foundation.6.4.2', 'base', 'cake']) ?>
+    <?= $this->Html->css(['foundation', 'base', 'cake']) ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -62,32 +62,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 </ul>
             </ul>
         </div>
-        <div class="top-bar-right">
-          <ul class="menu">
-           <li><a href="#">Libros</a></li>
-           <li><a href="#">Autores</a></li>
-           <li><a href="#">Revistas</a></li>
-           <li><a href="#">Four</a></li>
-           <?php 
-           if (!empty($logged_user))
-           { 
-               echo ('<li>' .
-                $this->Html->link(__("$logged_user: Logout"), ['controller' => 'users','action' => 'logout']));
-           } 
-           else
-           {
-            echo ('<li>' .  $this->Html->link(__('Login'), ['controller' => 'users','action' => 'login']) . '</li>');
-        }
-        ?>
-    </ul>
-</div>
-</div>
-
-<?= $this->Flash->render() ?>
-<div class="container clearfix">
-    <?= $this->fetch('content') ?>
-</div>
-<footer>
-</footer>
+    </nav>
+    <?= $this->Flash->render() ?>
+    <div class="container clearfix">
+        <?= $this->fetch('content') ?>
+    </div>
+    <footer>
+    </footer>
 </body>
 </html>
