@@ -318,6 +318,7 @@ pre {
     margin-right: 9px;
 }
 
+/* Modificaciones a top-bar de foundation */
 .top-bar.expanded .title-area {
     background: #01545b;
 }
@@ -342,6 +343,8 @@ pre {
     background-color: 222222;
     background: 222222;
 }
+
+/* ------------*/
 
 .side-nav li.heading {
     color: #1798A5;
