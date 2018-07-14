@@ -20,6 +20,13 @@ class AutoresController extends AppController
      */
     public function index()
     {
+         $this->paginate = [
+            'finder' => [
+                /* finderFunction => [ condition ] */
+                'autores' => ['nombre' => $this->request->getData('fNombre'),
+                              'apellidos' => $this->request->getData('fApellidos')]
+            ]
+        ];
         $autores = $this->paginate($this->Autores);
 
         $this->set(compact('autores'));

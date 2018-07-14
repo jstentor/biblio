@@ -57,27 +57,47 @@ class AutoresTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
+        ->integer('id')
+        ->allowEmpty('id', 'create');
 
         $validator
-            ->scalar('ape_nom')
-            ->maxLength('ape_nom', 150)
-            ->requirePresence('ape_nom', 'create')
-            ->notEmpty('ape_nom');
+        ->scalar('ape_nom')
+        ->maxLength('ape_nom', 150)
+        ->requirePresence('ape_nom', 'create')
+        ->notEmpty('ape_nom');
 
         $validator
-            ->scalar('nombre')
-            ->maxLength('nombre', 100)
-            ->requirePresence('nombre', 'create')
-            ->notEmpty('nombre');
+        ->scalar('nombre')
+        ->maxLength('nombre', 100)
+        ->requirePresence('nombre', 'create')
+        ->notEmpty('nombre');
 
         $validator
-            ->scalar('apellidos')
-            ->maxLength('apellidos', 100)
-            ->requirePresence('apellidos', 'create')
-            ->notEmpty('apellidos');
+        ->scalar('apellidos')
+        ->maxLength('apellidos', 100)
+        ->requirePresence('apellidos', 'create')
+        ->notEmpty('apellidos');
 
         return $validator;
+    }
+    
+    public function findApellidos(Query $query, array $options)
+    {
+        $apellidos = $options['apellidos'];
+        return $query->where(['apellidos LIKE' => "%$apellidos%"]);
+    }
+
+    public function findNombre(Query $query, array $options)
+    {
+        $nombre = $options['nombre'];
+        return $query->where(['nombre LIKE' => "%$nombre%"]);
+    }
+    
+    public function findAutores(Query $query, array $options)
+    {
+        $nombre = $options['nombre'];
+        $apellidos = $options['apellidos'];
+        return $query->where(['nombre LIKE' => "%$nombre%",
+                            'apellidos LIKE' => "%$apellidos%"]);
     }
 }

@@ -16,6 +16,18 @@
     <h3><?= __('Autores') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
+            <?= $this->Form->create() ?>
+            <tr>
+                <th scope="col"><?= $this->Form->control('fNombre');?></th>
+                <th scope="col"><?= $this->Form->control('fApellidos'); ?></th>
+                <th scope="col"><?= $this->Form->button(__('Filtrar')); ?> 
+                    <?=  $this->Form->button('Limpiar', ['type'=>'reset', 
+                                                        'onclick'=>'this.form.reset()' ]);; ?>
+                </th>
+            </tr>
+                <?= $this->Form->end() ?>
+        </thead>
+        <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('nombre') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('apellidos') ?></th>
