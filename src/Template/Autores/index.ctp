@@ -3,6 +3,9 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Autor[]|\Cake\Collection\CollectionInterface $autores
  */
+$this->loadHelper('Form', [
+    'templates' => 'semantic',
+]);
 ?>
 <nav class="large-2 medium-3 columns" id="actions-sidebar">
     <ul class="side-nav">
@@ -20,8 +23,9 @@
             <tr>
                 <th scope="col"><?= $this->Form->control('fNombre', ['label' => '&nbsp;', 'escape' => false]);?></th>
                 <th scope="col"><?= $this->Form->control('fApellidos', ['label' => '&nbsp;', 'escape' => false]); ?></th>
-                <th scope="col"><?= $this->Form->button('Filtrar', ['type'=>'submit', 'name' => 'boton', 'value' => 'filtrar']); ?> 
-                    <?=  $this->Form->button('Borrar filtro', ['type'=>'submit', 'name' => 'boton', 'value' => 'borrar', 'class' => 'filter']); ?>
+                <th scope="col">
+                    <?= $this->Form->submit('filtro_gris.png', ['name' => 'boton', 'value' => 'filtrar', 'class' => 'filtro', 'alt' => 'Filtrar', 'title' => 'Filtrar']); ?>
+                    <?=  $this->Form->submit('no_filtro_gris.png', ['name' => 'boton', 'value' => 'borrar', 'class' => 'filtro', 'alt' => 'Borrar filtro', 'title' => 'Borrar filtro']); ?>
                 </th>
             </tr>
                 <?= $this->Form->end() ?>

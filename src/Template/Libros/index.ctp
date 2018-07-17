@@ -18,6 +18,19 @@
     <h3><?= __('Libros') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
+            <?= $this->Form->create(null, ['url' => ['action' => 'index']]) ?>
+            <tr>
+                <th scope="col"><?= $this->Form->control('fNombre', ['label' => '&nbsp;', 'escape' => false]);?></th>
+                <th scope="col"><?= $this->Form->control('fTitulo', ['label' => '&nbsp;', 'escape' => false]); ?></th>
+                <th scope="col"><?= $this->Form->control('fTema', ['label' => '&nbsp;', 'escape' => false]); ?></th>
+                <th scope="col"><?= $this->Form->control('fIdioma', ['label' => '&nbsp;', 'escape' => false]); ?></th>
+                <th scope="col"><?= $this->Form->button('Filtrar', ['type'=>'submit', 'name' => 'boton', 'value' => 'filtrar']); ?> 
+                    <?=  $this->Form->button('Borrar filtro', ['type'=>'submit', 'name' => 'boton', 'value' => 'borrar', 'class' => 'filter']); ?>
+                </th>
+            </tr>
+                <?= $this->Form->end() ?>
+        </thead>
+        <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('nombreautor', 'Autor') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('titulo') ?></th>

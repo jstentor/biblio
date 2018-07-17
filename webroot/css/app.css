@@ -1,3 +1,7 @@
 button filter {
     background: #666666;
 }
+
+input.filtro {
+	margin: 2px 8px 2px 8px ;
+}
