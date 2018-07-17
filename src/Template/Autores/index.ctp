@@ -16,13 +16,12 @@
     <h3><?= __('Autores') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
-            <?= $this->Form->create() ?>
+            <?= $this->Form->create(null, ['url' => ['action' => 'index']]) ?>
             <tr>
-                <th scope="col"><?= $this->Form->control('fNombre');?></th>
-                <th scope="col"><?= $this->Form->control('fApellidos'); ?></th>
-                <th scope="col"><?= $this->Form->button(__('Filtrar')); ?> 
-                    <?=  $this->Form->button('Limpiar', ['type'=>'reset', 
-                                                        'onclick'=>'this.form.reset()' ]);; ?>
+                <th scope="col"><?= $this->Form->control('fNombre', ['label' => '&nbsp;', 'escape' => false]);?></th>
+                <th scope="col"><?= $this->Form->control('fApellidos', ['label' => '&nbsp;', 'escape' => false]); ?></th>
+                <th scope="col"><?= $this->Form->button('Filtrar', ['type'=>'submit', 'name' => 'boton', 'value' => 'filtrar']); ?> 
+                    <?=  $this->Form->button('Borrar filtro', ['type'=>'submit', 'name' => 'boton', 'value' => 'borrar', 'class' => 'filter']); ?>
                 </th>
             </tr>
                 <?= $this->Form->end() ?>

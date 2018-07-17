@@ -20,6 +20,10 @@ class AutoresController extends AppController
      */
     public function index()
     {
+        if(isset($this->request->data['boton']) and $this->request->data['boton'] == 'borrar') { //limpiar el formulario
+            $this->request->data = null;
+        }
+
          $this->paginate = [
             'finder' => [
                 /* finderFunction => [ condition ] */
@@ -30,6 +34,7 @@ class AutoresController extends AppController
         $autores = $this->paginate($this->Autores);
 
         $this->set(compact('autores'));
+
     }
 
     /**
