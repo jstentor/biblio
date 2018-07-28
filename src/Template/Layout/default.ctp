@@ -49,9 +49,15 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </ul>
         <div class="top-bar-section">
             <ul class="left">
-                <li class="active"><?= $this->Html->link(__('Libros'), ['controller' => 'libros']) ?></li>
-                <li><?= $this->Html->link(__('Autores'), ['controller' => 'autores']) ?></li>
-                <li><?= $this->Html->link(__('Temas'), ['controller' => 'temas']) ?></li>
+                <li class=<?= (strtolower($this->name) == 'libros' ? '"active"' : '""') ?>>
+                    <?= $this->Html->link(__('Libros'), ['controller' => 'libros']) ?>
+                </li>
+                <li class=<?= (strtolower($this->name) == 'autores' ? '"active"' : '""') ?>>
+                    <?= $this->Html->link(__('Autores'), ['controller' => 'autores']) ?>
+                </li>
+                <li class=<?= (strtolower($this->name) == 'temas' ? '"active"' : '""') ?>>
+                    <?= $this->Html->link(__('Temas'), ['controller' => 'temas']) ?>
+                </li>
             </ul>
 
             <ul class="right">
