@@ -2,6 +2,10 @@ button filter {
     background: #666666;
 }
 
-input.filtro {
+/*input.filtro {
 	margin: 2px 8px 2px 8px ;
+}*/
+
+select.filtro {
+    margin: 0 0 1rem 0;
 }

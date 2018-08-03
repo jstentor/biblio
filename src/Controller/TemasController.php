@@ -20,13 +20,23 @@ class TemasController extends AppController
      */
     public function index()
     {
+        if(isset($this->request->data['boton']) and $this->request->data['boton'] == 'borrar') { //limpiar el formulario
+            $this->request->data = null;
+        }
+
         $this->paginate = [
             'contain' => ['ParentTemas', 'Libros'],
             'sortWhitelist' => [
                 'ParentTemas.tema', 'tema'
             ],
-            'TemaPadre' => ['ParentTemas.tema' => 'ASC', 'tema' => 'ASC']
-        ];
+            'TemaPadre' => ['ParentTemas.tema' => 'ASC', 'tema' => 'ASC'],
+            'finder' => [
+                'temas' => ['tema' => $this->request->getData('fTema'),
+                            'padre' => $this->request->getData('fPadre'),
+                ]
+            ]
+        ];        
+
         $temas = $this->paginate($this->Temas);
 
         $this->set(compact('temas'));

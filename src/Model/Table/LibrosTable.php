@@ -149,4 +149,13 @@ class LibrosTable extends Table
 
         return $rules;
     }
+
+    public function findLibros(Query $query, array $options)
+    {
+        return $query->where(['Libros.nombreautor LIKE' => '%' .  $options['autor'] . '%',
+                        'Libros.titulo LIKE' => '%' .  $options['titulo'] . '%',
+                        'Temas.tema LIKE' => '%' .  $options['tema'] . '%',
+                        'Libros.idioma LIKE' => '%' .  $options['idioma'] . '%',
+                ]);
+    }
 }

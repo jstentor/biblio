@@ -214,3 +214,5 @@ Inflector::rules('irregular', ['autor' => 'autores']);
 if (Configure::read('debug')) {
     Plugin::load('DebugKit', ['bootstrap' => true]);
 }
+
+Plugin::load('Search');

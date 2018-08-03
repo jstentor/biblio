@@ -91,4 +91,11 @@ class TemasTable extends Table
 
         return $rules;
     }
+
+    public function findTemas(Query $query, array $options)
+    {
+        return $query->where(['Temas.tema LIKE' => '%' .  $options['tema'] . '%',
+                        'ParentTemas.tema LIKE' => '%' .  $options['padre'] . '%',
+                ]);
+    }
 }

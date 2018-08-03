@@ -20,12 +20,13 @@
         <thead>
             <?= $this->Form->create(null, ['url' => ['action' => 'index']]) ?>
             <tr>
-                <th scope="col"><?= $this->Form->control('fNombre', ['label' => '&nbsp;', 'escape' => false]);?></th>
+                <th scope="col"><?= $this->Form->control('fAutor', ['label' => '&nbsp;', 'escape' => false]);?></th>
                 <th scope="col"><?= $this->Form->control('fTitulo', ['label' => '&nbsp;', 'escape' => false]); ?></th>
                 <th scope="col"><?= $this->Form->control('fTema', ['label' => '&nbsp;', 'escape' => false]); ?></th>
                 <th scope="col"><?= $this->Form->control('fIdioma', ['label' => '&nbsp;', 'escape' => false]); ?></th>
-                <th scope="col"><?= $this->Form->button('Filtrar', ['type'=>'submit', 'name' => 'boton', 'value' => 'filtrar']); ?> 
-                    <?=  $this->Form->button('Borrar filtro', ['type'=>'submit', 'name' => 'boton', 'value' => 'borrar', 'class' => 'filter']); ?>
+                <th scope="col">
+                    <?= $this->Form->button('', ['name' => 'boton', 'value' => 'filtrar', 'class' => 'fi-check filtro', 'alt' => 'Filtrar', 'title' => 'Filtrar']); ?>
+                    <?=  $this->Form->button('', ['name' => 'boton', 'value' => 'borrar', 'class' => 'fi-x filtro', 'alt' => 'Borrar filtro', 'title' => 'Borrar filtro']); ?>                    
                 </th>
             </tr>
                 <?= $this->Form->end() ?>

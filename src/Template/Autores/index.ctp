@@ -24,11 +24,11 @@ $this->loadHelper('Form', [
                 <th scope="col"><?= $this->Form->control('fNombre', ['label' => '&nbsp;', 'escape' => false]);?></th>
                 <th scope="col"><?= $this->Form->control('fApellidos', ['label' => '&nbsp;', 'escape' => false]); ?></th>
                 <th scope="col">
-                    <?= $this->Form->submit('filtro_gris.png', ['name' => 'boton', 'value' => 'filtrar', 'class' => 'filtro', 'alt' => 'Filtrar', 'title' => 'Filtrar']); ?>
-                    <?=  $this->Form->submit('no_filtro_gris.png', ['name' => 'boton', 'value' => 'borrar', 'class' => 'filtro', 'alt' => 'Borrar filtro', 'title' => 'Borrar filtro']); ?>
+                    <?= $this->Form->button('', ['name' => 'boton', 'value' => 'filtrar', 'class' => 'fi-check filtro', 'alt' => 'Filtrar', 'title' => 'Filtrar']); ?>
+                    <?=  $this->Form->button('', ['name' => 'boton', 'value' => 'borrar', 'class' => 'fi-x filtro', 'alt' => 'Borrar filtro', 'title' => 'Borrar filtro']); ?>                    
                 </th>
             </tr>
-                <?= $this->Form->end() ?>
+            <?= $this->Form->end() ?>
         </thead>
         <thead>
             <tr>

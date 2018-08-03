@@ -16,6 +16,19 @@
     <h3><?= __('Temas') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
+            <?= $this->Form->create(null, ['url' => ['action' => 'index']]) ?>
+            <tr>
+                <th scope="col"><?= $this->Form->control('fTema', ['label' => '&nbsp;', 'escape' => false]);?></th>
+                <th scope="col"><?= $this->Form->control('fPadre', ['label' => '&nbsp;', 'escape' => false]); ?></th>
+                <th scope="col">
+                    <?= $this->Form->button('', ['name' => 'boton', 'value' => 'filtrar', 'class' => 'fi-check filtro', 'alt' => 'Filtrar', 'title' => 'Filtrar']); ?>
+                    <?=  $this->Form->button('', ['name' => 'boton', 'value' => 'borrar', 'class' => 'fi-x filtro', 'alt' => 'Borrar filtro', 'title' => 'Borrar filtro']); ?>                    
+                </th>
+            </tr>
+                <?= $this->Form->end() ?>
+        </thead>
+
+        <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('tema') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('ParentTemas.tema', 'Tema padre') ?></th>
