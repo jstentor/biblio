@@ -2,6 +2,7 @@
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
+use Cake\Log\Log;
 
 /**
  * Libro Entity
@@ -65,4 +66,31 @@ class Libro extends Entity
         'autores' => true,
         'old_autores' => true
     ];
+
+    protected function _getLosAutores()
+    {
+        $autores = "";
+        foreach($this->_properties['autores'] as $au) {
+            $apenom = "";
+            if (trim($au->apellidos) == "") {
+                if (trim($au->nombre) == "") {
+                    $apenom = "";
+                } else {
+                    $apenom = $au->nombre;
+                }
+            } else {
+                $apenom = $au->apellidos;
+                if (trim($au->nombre) != "") {
+                    $apenom .= ", " . $au->nombre;
+                }
+            }
+            if (trim($apenom) != "") {
+                $autores .= $apenom . " - ";
+            }
+        }
+        if ($autores != "") { // quitarle el guión que le sobra
+            $autores = substr($autores, 0, strlen($autores) - 3);
+        }
+        return $autores;
+    }
 }

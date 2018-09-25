@@ -19,10 +19,14 @@
 </nav>
 <div class="libros view large-10 medium-9 columns content">
     <h3><?= h($libro->titulo) ?></h3>
-    <table class="vertical-table">
+    <table class="vertical-table large-9">
         <tr>
             <th scope="row"><?= __('Autor') ?></th>
-            <td colspan="3"><?= h($libro->nombreautor) ?></td>
+            <td colspan="3">[[<?= h($libro->nombreautor) ?>]]</td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Autores') ?></th>
+            <td colspan="3"><?= h($libro->los_autores) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Titulo') ?></th>

@@ -17,7 +17,7 @@
 </nav>
 <div class="autores view large-10 medium-9 columns content">
     <h3><?= h($autor->ape_nom) ?></h3>
-    <table class="vertical-table">
+    <table class="vertical-table large-9">
         <tr>
             <th scope="row"><?= __('Ape Nom') ?></th>
             <td><?= h($autor->ape_nom) ?></td>

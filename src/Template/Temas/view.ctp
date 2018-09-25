@@ -21,7 +21,7 @@
 </nav>
 <div class="temas view large-10 medium-9 columns content">
     <h3><?= h($tema->tema) ?></h3>
-    <table class="vertical-table">
+    <table class="vertical-table large-9">
         <tr>
             <th scope="row"><?= __('Tema') ?></th>
             <td><?= h($tema->tema) ?></td>
@@ -42,7 +42,7 @@
             </tr>
             <?php foreach ($tema->libros as $libros): ?>
             <tr>
-                <td><?= h($libros->autor) ?></td>
+                <td><?= h($libros->nombreautor) ?></td>
                 <td><?= h($libros->titulo) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Libros', 'action' => 'view', $libros->id]) ?>
@@ -60,13 +60,11 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Tema') ?></th>
-                <th scope="col"><?= __('Parent Id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($tema->child_temas as $childTemas): ?>
             <tr>
                 <td><?= h($childTemas->tema) ?></td>
-                <td><?= h($childTemas->parent_id) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Temas', 'action' => 'view', $childTemas->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Temas', 'action' => 'edit', $childTemas->id]) ?>
