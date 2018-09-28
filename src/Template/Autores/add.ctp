@@ -17,7 +17,7 @@
     <fieldset>
         <legend><?= __('Add Autor') ?></legend>
         <?php
-            echo $this->Form->control('ape_nom');
+            //echo $this->Form->control('ape_nom');
             echo $this->Form->control('nombre');
             echo $this->Form->control('apellidos');
             echo $this->Form->control('libros._ids', ['options' => $libros]);

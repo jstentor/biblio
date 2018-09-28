@@ -19,16 +19,16 @@ $this->loadHelper('Form', [
     <h3><?= __('Autores') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
-            <?= $this->Form->create(null, ['url' => ['action' => 'index']]) ?>
+            <?= $this->Form->create(null, ['valueSources' => 'query']); ?>
             <tr>
-                <th scope="col"><?= $this->Form->control('fNombre', ['label' => '&nbsp;', 'escape' => false]);?></th>
-                <th scope="col"><?= $this->Form->control('fApellidos', ['label' => '&nbsp;', 'escape' => false]); ?></th>
-                <th scope="col">
-                    <?= $this->Form->button('', ['name' => 'boton', 'value' => 'filtrar', 'class' => 'fi-check filtro', 'alt' => 'Filtrar', 'title' => 'Filtrar']); ?>
-                    <?=  $this->Form->button('', ['name' => 'boton', 'value' => 'borrar', 'class' => 'fi-x filtro', 'alt' => 'Borrar filtro', 'title' => 'Borrar filtro']); ?>                    
+                <th><?= $this->Form->control('busca_nombre', ['label' => '']); ?></th>
+                <th><?= $this->Form->control('busca_apellidos', ['label' => '']); ?></th> 
+                <th>
+                    <?= $this->Form->button('', ['type' => 'submit', 'class' => 'fi-check filtro', 'label' => '']);?>
+                    <?= $this->Html->link('', ['action' => 'index'], ['class' => 'fi-x filtro button']);?>
                 </th>
             </tr>
-            <?= $this->Form->end() ?>
+            <?= $this->Form->end();?>
         </thead>
         <thead>
             <tr>

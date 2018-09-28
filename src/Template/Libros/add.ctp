@@ -38,7 +38,6 @@
             echo $this->Form->control('observaciones');
             echo $this->Form->control('baja');
             echo $this->Form->control('autores._ids', ['options' => $autores]);
-            echo $this->Form->control('old_autores._ids', ['options' => $oldAutores]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
