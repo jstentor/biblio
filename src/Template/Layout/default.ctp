@@ -28,6 +28,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
     <?= $this->Html->css(['foundation', 'base', 'cake', 'app', 'foundation-icons/foundation-icons'])?>
 
+    <?= $this->Html->script(['jquery']) ?>
+
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
