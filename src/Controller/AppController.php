@@ -74,4 +74,17 @@ class AppController extends Controller
     public function beforeRender(Event $event) {
         //$this->set('logged_user', $this->Auth->user('user'));
     }
+    
+    /**
+     *  refineQuery refina los parámetros del request query quitando el parámetro _page_, para exportar a Excel y pdf
+     *
+     * @param $params array que representa el request query
+     * @return $params array depurado (sin elemento 'page')
+     *
+     */
+    public function getQueryParamsNoPage() {
+        $params = $this->request->getQueryParams();
+        unset($params['page']);
+        return $params;
+    }    
 }
