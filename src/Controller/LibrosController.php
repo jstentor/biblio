@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\TableRegistry;
 
 /**
  * Libros Controller
@@ -137,5 +138,14 @@ class LibrosController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function search($string = '', $autor = 0) {
+        
+        $this->request->allowMethod('ajax');
+        $query = $this->Libros->find('titulos', ['titulo' => $string, 'autor' => $autor])
+                        ->limit(10);
+        $this->set('hallados', $query);
+        $this->set('_serialize', ['hallados']);
     }
 }

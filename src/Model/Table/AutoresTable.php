@@ -47,7 +47,8 @@ class AutoresTable extends Table
         $this->belongsToMany('Libros', [
             'foreignKey' => 'autor_id',
             'targetForeignKey' => 'libro_id',
-            'joinTable' => 'autores_libros'
+            //'joinTable' => 'autores_libros',
+            'through' => 'AutoresLibros'
         ]);
 
         $this->addBehavior('Search.Search');        

@@ -4,7 +4,9 @@ namespace App\Model\Table;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
+use Cake\ORM\TableRegistry;
 use Cake\Validation\Validator;
+use Cake\Log\Log;
 
 /**
  * Libros Model
@@ -48,7 +50,11 @@ class LibrosTable extends Table
         $this->belongsToMany('Autores', [
             'foreignKey' => 'libro_id',
             'targetForeignKey' => 'autor_id',
-            'joinTable' => 'autores_libros'
+            //'joinTable' => 'autores_libros'
+            'through' => 'AutoresLibros'
+        ]);
+        $this->hasMany('AutoresLibros', [
+            'foreignKey' => 'libro_id'
         ]);
     }
 
@@ -157,5 +163,17 @@ class LibrosTable extends Table
                         'Temas.tema LIKE' => '%' .  $options['tema'] . '%',
                         'Libros.idioma LIKE' => '%' .  $options['idioma'] . '%',
                 ]);
+    }
+
+    public function findTitulos(Query $query, array $options)
+    {
+        $titulo = $options['titulo'];
+        $autor = $options['autor'];
+
+        $autoresLibros = TableRegistry::get('AutoresLibros');
+        $excluir = $autoresLibros->find('libros', ['autor' => $autor]);
+
+        return $query->where(['Libros.titulo LIKE' => '%' .  $options['titulo'] . '%',
+                            'Libros.id NOT IN' => $excluir]);
     }
 }
