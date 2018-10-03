@@ -4,6 +4,7 @@
  * @var \App\Model\Entity\Autor $autor
  */
 use Cake\Routing\Router;
+$tabla_vacia = "<table><tbody><thead><td>Título</td></thead></tbody></tbody></table>";
 ?>
 <nav class="large-2 medium-3 columns" id="actions-sidebar">
     <ul class="side-nav">
@@ -27,7 +28,7 @@ use Cake\Routing\Router;
             //echo $this->Form->control('ape_nom');
             echo $this->Form->control('nombre');
             echo $this->Form->control('apellidos');
-            echo $this->Form->control('libros._ids', ['options' => $libros]);
+            //echo $this->Form->control('libros._ids', ['options' => $libros]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
@@ -48,7 +49,9 @@ use Cake\Routing\Router;
                     <tr><th>Asignar Libro</th></tr>
                     <tr><td class="ui-widget">
                         <?= $this->Form->text('busca-libros', ['label' => 'Libros: ', 'id' => 'busca-libros']); ?>
-                        <div class="error" id="errores">
+                        <div class="error" id="errores"></div>
+                        <div id="datos-libros">
+                            <?= $this->element('search_libros',['hallados' => []]); ?>
                         </div>
                     </td>
                 </tr>
@@ -61,15 +64,13 @@ use Cake\Routing\Router;
 
 <?php 
 $ellibro_id = $autor['id'];
-$url_addlibro = Router::url(array('controller'=>'autores','action'=>'ajaxAddlibro'));
 $url_deletelibro1 = "'" . $this->Html->link('', ['controller'=> 'autores', 
                       'action' => 'ajaxDesasignar'], 
                   ['class' => 'fi-x filtro', 
                   'confirm' => '¿Seguro que desea desasignar este libro de este autor?']) . "'";
-
-$this->Html->scriptStart(['block' => true]);
-echo <<<EOL
-$(function() {
+?>
+<script>
+    /* <<< común a todos los livesearch */
     var accentMap = {
         "á": "a", "Á": "A", "é": "e", "É": "E", "ë": "e", "Ë": "E", "í": "i", "Í": "I", "ó": "o", "Ó": "o", "ú": "u", "Ú": "U", "ü": "u", "Ü": "U"
     };
@@ -81,11 +82,35 @@ $(function() {
         }
         return ret;
     };
+    /* común a todos los livesearch >>>*/
 
-    $( "#busca-libros" ).keypress(function() {
-        alert("Handler for change() called");
+    $( "#busca-libros" ).keyup(function() {
+        var searchkey = $(this).val();
+        if (searchkey.length == 0) {
+            $( '#datos-libros' ).html("<?= $tabla_vacia ?>");
+        } else {
+            console.log("Input: " + searchkey.length + " --" + searchkey + "--");
+            searchLibros( searchkey );
+        }
     });
 
-});
-EOL;
-$this->Html->scriptEnd(); ?>
+
+    function searchLibros( keyword ) {
+        var data = keyword;
+        $.ajax({
+            method: 'get',
+            
+            url:  "<?= $this->url->build(['controller'=>'libros','action'=>'search'])?>" + "/" + keyword + "/<?= $autor->id ?>",
+            
+            success: function(response) {
+                $( '#datos-libros' ).html(response);                                
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log(xhr.status);
+                console.log(thrownError);
+                $('#errores').html('Se ha producido un error al buscar libro.');
+            }
+        });
+    }
+
+</script>
