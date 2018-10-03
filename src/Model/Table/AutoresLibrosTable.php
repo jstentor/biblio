@@ -1,6 +1,7 @@
 <?php
 namespace App\Model\Table;
 
+use Cake\Log\Log;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
@@ -80,5 +81,11 @@ class AutoresLibrosTable extends Table
         $rules->add($rules->existsIn(['libro_id'], 'Libros'));
 
         return $rules;
+    }
+
+    public function findLibros(Query $query, array $options)
+    {
+        return $query->select(['libro_id'])
+                ->where(['AutoresLibros.autor_id' => $options['autor']]);
     }
 }
