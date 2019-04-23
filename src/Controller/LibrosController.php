@@ -13,6 +13,14 @@ use Cake\ORM\TableRegistry;
  */
 class LibrosController extends AppController
 {
+	public function initialize()
+	{
+		parent::initialize();
+		
+		$this->loadComponent('Search.Prg', [
+				'actions' => ['index']
+		]);
+	}
 
     /**
      * Index method
@@ -21,26 +29,17 @@ class LibrosController extends AppController
      */
     public function index()
     {
-        if(isset($this->request->data['boton']) and $this->request->data['boton'] == 'borrar') { //limpiar el formulario
-            $this->request->data = null;
-        }
-
+    	$query = $this->Libros
+    	->find('search', ['search' => $this->request->getQueryParams()]);
+    	
         $this->paginate = [
             'sortWhitelist' => [
                 'Temas.tema', 'nombreautor', 'titulo', 'idioma'
             ],
             'contain' => ['Temas', 'Autores'],
             'order' => ['nombreautor' => 'ASC'],
-            'finder' => [
-                'libros' => ['autor' => $this->request->getData('fAutor'),
-                                'titulo' => $this->request->getData('fTitulo'),
-                                'tema' => $this->request->getData('fTema'),
-                                'idioma' => $this->request->getData('fIdioma'),
-                ]
-            ]
-
         ];
-        $libros = $this->paginate($this->Libros);
+        $libros = $this->paginate($query);
 
         $this->set(compact('libros'));
     }

@@ -56,6 +56,7 @@ class LibrosTable extends Table
         $this->hasMany('AutoresLibros', [
             'foreignKey' => 'libro_id'
         ]);
+        $this->addBehavior('Search.Search');
     }
 
     /**
@@ -176,4 +177,52 @@ class LibrosTable extends Table
         return $query->where(['Libros.titulo LIKE' => '%' .  $options['titulo'] . '%',
                             'Libros.id NOT IN' => $excluir]);
     }
+    
+    /**
+     * @return \Search\Manager
+     */
+    public function searchManager()
+    {
+    	$searchManager = $this->behaviors()->Search->searchManager();
+    	$searchManager
+    	->add('busca_autor', 'Search.Like', [
+    			'before' => true,
+    			'after' => true,
+    			'fieldMode' => 'OR',
+    			'comparison' => 'LIKE',
+    			'wildcardAny' => '*',
+    			'wildcardOne' => '?',
+    			'field' => ['nombreautor']
+    	])
+    	->add('busca_titulo', 'Search.Like', [
+    			'before' => true,
+    			'after' => true,
+    			'fieldMode' => 'OR',
+    			'comparison' => 'LIKE',
+    			'wildcardAny' => '*',
+    			'wildcardOne' => '?',
+    			'field' => ['titulo']
+    	])
+    	->add('busca_tema', 'Search.Like', [
+    			'before' => true,
+    			'after' => true,
+    			'fieldMode' => 'OR',
+    			'comparison' => 'LIKE',
+    			'wildcardAny' => '*',
+    			'wildcardOne' => '?',
+    			'field' => ['Temas.tema']
+    	])
+    	->add('busca_idioma', 'Search.Like', [
+    			'before' => true,
+    			'after' => true,
+    			'fieldMode' => 'OR',
+    			'comparison' => 'LIKE',
+    			'wildcardAny' => '*',
+    			'wildcardOne' => '?',
+    			'field' => ['idioma']
+    	]);
+    	
+    	return $searchManager;
+    }
+    
 }

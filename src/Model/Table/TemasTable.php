@@ -55,6 +55,7 @@ class TemasTable extends Table
             'className' => 'Temas',
             'foreignKey' => 'parent_id'
         ]);
+        $this->addBehavior('Search.Search');
     }
 
     /**
@@ -97,5 +98,34 @@ class TemasTable extends Table
         return $query->where(['Temas.tema LIKE' => '%' .  $options['tema'] . '%',
                         'ParentTemas.tema LIKE' => '%' .  $options['padre'] . '%',
                 ]);
+    }
+    
+    /**
+     * @return \Search\Manager
+     */
+    public function searchManager()
+    {
+    	$searchManager = $this->behaviors()->Search->searchManager();
+    	$searchManager
+    	->add('busca_tema', 'Search.Like', [
+    			'before' => true,
+    			'after' => true,
+    			'fieldMode' => 'OR',
+    			'comparison' => 'LIKE',
+    			'wildcardAny' => '*',
+    			'wildcardOne' => '?',
+    			'field' => ['tema']
+    	])
+    	->add('busca_padre', 'Search.Like', [
+    			'before' => true,
+    			'after' => true,
+    			'fieldMode' => 'OR',
+    			'comparison' => 'LIKE',
+    			'wildcardAny' => '*',
+    			'wildcardOne' => '?',
+    			'field' => ['ParentTemas.tema']
+    	]);
+    	
+    	return $searchManager;
     }
 }

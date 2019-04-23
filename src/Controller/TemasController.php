@@ -12,7 +12,15 @@ use App\Controller\AppController;
  */
 class TemasController extends AppController
 {
-
+	public function initialize()
+	{
+		parent::initialize();
+		
+		$this->loadComponent('Search.Prg', [
+				'actions' => ['index']
+		]);
+	}
+	
     /**
      * Index method
      *
@@ -20,9 +28,9 @@ class TemasController extends AppController
      */
     public function index()
     {
-        if(isset($this->request->data['boton']) and $this->request->data['boton'] == 'borrar') { //limpiar el formulario
-            $this->request->data = null;
-        }
+    	$query = $this->Temas
+    	->find('search', ['search' => $this->request->getQueryParams()]);
+    	
 
         $this->paginate = [
             'contain' => ['ParentTemas', 'Libros'],
@@ -30,14 +38,9 @@ class TemasController extends AppController
                 'ParentTemas.tema', 'tema'
             ],
             'TemaPadre' => ['ParentTemas.tema' => 'ASC', 'tema' => 'ASC'],
-            'finder' => [
-                'temas' => ['tema' => $this->request->getData('fTema'),
-                            'padre' => $this->request->getData('fPadre'),
-                ]
-            ]
-        ];        
+         ];        
 
-        $temas = $this->paginate($this->Temas);
+        $temas = $this->paginate($query);
 
         $this->set(compact('temas'));
     }
