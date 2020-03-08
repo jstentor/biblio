@@ -40,3 +40,6 @@ nbproject/*
 .sass-cache/
 .buildpath
 .project
+/logs/
+/tmp/
+/vendor/
