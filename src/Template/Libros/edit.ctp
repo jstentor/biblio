@@ -99,4 +99,32 @@
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
+
+<!-- https://discourse.cakephp.org/t/how-to-make-simple-jquery-ajax-in-cakephp-3-7/5834/2 -->
+
+    <div class='related form large-10 medium-9 columns content'>
+        <h3>Autores relacionados</h3>
+        <table class="noborder">
+            <tr>
+                <td class="noborder" width="50%">
+                    <div id="autores-div">
+                      <?= $this->element('autoresdeunlibro', ['tabla_autores' => $libro['autores'], 'idLibro' => $libro['id']]) ?>
+
+                  </div>
+                </td>
+                <td class="noborder" width="50%">
+
+                <table>
+                    <tr><th>Asignar Autor</th></tr>
+                    <tr><td class="ui-widget">
+                        <?= $this->Form->text('busca-autores', ['label' => 'Autores: ', 'id' => 'busca-autores']); ?>
+                        <div class="error" id="errores">
+                        </div>
+                    </td>
+                </tr>
+                </table>
+                </td>
+            </tr>
+        </table>
+    </div>    
 </div>
