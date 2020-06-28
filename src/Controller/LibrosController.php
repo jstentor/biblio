@@ -94,7 +94,45 @@ class LibrosController extends AppController
         $libro = $this->Libros->get($id, [
             'contain' => ['Autores']
         ]);
+        $this->log($libro);
         if ($this->request->is(['patch', 'post', 'put'])) {
+        	// analizar $this->request para convertir 
+        	$this->log($this->request->getData());
+        	/* Lo que debe venir de vuelta
+        	 * (
+			    [nombreautor] => Aas,  Gregor - Riedmiller,  Andreas
+			    [titulo] => Árboles de hoja caduca
+			    [tema] => 1
+			    [topografia] => 
+			    [idioma] => Español
+			    [traductor] => Berasaín Villanueva, Alfonso
+			    [tipo] => Libro
+			    [editorial] => Everest
+			    [ciudad] => León
+			    [edicion] => 1ª
+			    [anio_edicion] => 1994
+			    [primera_edicion] => 1994
+			    [paginas] => 160
+			    [tomos] => 1
+			    [baja] => 0
+			    [autores] => Array
+			        (
+			            [_ids] => Array
+			                (
+			                    [0] => 925
+			                    [1] => 1312
+			                    [2] => 1118
+			                )
+			
+			        )
+			
+			    [busca-autores] => 
+			)
+			*/       	
+        	
+        	
+        	
+        	// parchear y guardar
             $libro = $this->Libros->patchEntity($libro, $this->request->getData());
             if ($this->Libros->save($libro)) {
                 $this->Flash->success(__('The libro has been saved.'));
@@ -103,10 +141,16 @@ class LibrosController extends AppController
             }
             $this->Flash->error(__('The libro could not be saved. Please, try again.'));
         }
+        
+        $autores_hidden = array();
+        foreach ($libro->autores as $autor) {
+        	$autores_hidden[] = $autor['id'];
+        }
         $temas = $this->Libros->Temas->find('list', ['limit' => 200]);
         $autores = $this->Libros->Autores->find('list', ['limit' => 200]);
+        $autores_hidden = (json_encode($autores_hidden));
         $prueba = "Esto es una prueba";
-        $this->set(compact('libro', 'temas', 'autores','prueba'));
+        $this->set(compact('libro', 'temas', 'autores','prueba', 'autores_hidden'));
 
         /*
         $temas = [

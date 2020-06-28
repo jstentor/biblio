@@ -106,6 +106,10 @@ class AutoresController extends AppController
         $this->set(compact('autor', 'libros'/*,'jsonlibros'*/));
     }
 
+    public function search() {
+    	
+    }
+    
     /**
      * get_libros_sin_asignar
      *

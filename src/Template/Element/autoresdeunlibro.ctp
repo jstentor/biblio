@@ -32,7 +32,8 @@
       </table>
       <?php
   endif;
-  
+
+/*  
 $this->Html->scriptStart(['block' => true]);
 echo <<<EOL
 let jsId;
@@ -53,10 +54,10 @@ $(function(){
 		  });	
   });
   
-  /*$('.menu_button').click(function() {*/
+  //$('.menu_button').click(function() {
      
  })
   
 EOL;
-$this->Html->scriptEnd();
+$this->Html->scriptEnd();*/
 ?>

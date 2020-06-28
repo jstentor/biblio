@@ -4,6 +4,10 @@
  * @var \App\Model\Entity\Libro $libro
  */
 ?>
+
+<?= $this->Html->css(['select2.min'])?>
+<?= $this->Html->script(['select2.min']) ?>
+
 <nav class="large-2 medium-3 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
@@ -96,8 +100,10 @@
                     ]]);
             ?>
         </div>
+ 
         <div class="row">
         <h3>Autores relacionados</h3>
+        	<?= $this->Form->hidden($autores_hidden, ['name' => 'autores_hidden', 'id' => 'autores_hidden']); ?> 	
 	        <table class="noborder">
 	            <tr>
 	                <td class="noborder" width="50%">
@@ -129,29 +135,4 @@
 
 <!-- https://discourse.cakephp.org/t/how-to-make-simple-jquery-ajax-in-cakephp-3-7/5834/2 -->
 
-    <div class='related form large-10 medium-9 columns content'>
-        <h3>Autores relacionados</h3>
-        <table class="noborder">
-            <tr>
-                <td class="noborder" width="50%">
-                    <div id="autores-div">
-                      <?= $this->element('autoresdeunlibro', ['tabla_autores' => $libro['autores'], 'idLibro' => $libro['id']]) ?>
 
-                  </div>
-                </td>
-                <td class="noborder" width="50%">
-
-                <table>
-                    <tr><th>Asignar Autor</th></tr>
-                    <tr><td class="ui-widget">
-                        <?= $this->Form->text('busca-autores', ['label' => 'Autores: ', 'id' => 'busca-autores']); ?>
-                        <div class="error" id="errores">
-                        </div>
-                    </td>
-                </tr>
-                </table>
-                </td>
-            </tr>
-        </table>
-    </div>    
-</div>
