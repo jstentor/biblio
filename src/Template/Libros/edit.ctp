@@ -5,9 +5,6 @@
  */
 ?>
 
-<?= $this->Html->css(['select2.min'])?>
-<?= $this->Html->script(['select2.min']) ?>
-
 <nav class="large-2 medium-3 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
@@ -103,8 +100,8 @@
  
         <div class="row">
         <h3>Autores relacionados</h3>
-        	<?= $this->Form->hidden($autores_hidden, ['name' => 'autores_hidden', 'id' => 'autores_hidden']); ?> 	
-	        <table class="noborder">
+          	<?= $this->Form->hidden('autores_hidden', ['id' => 'autores_hidden', 'value' => $autores_hidden]); ?> 	
+          	<table class="noborder">
 	            <tr>
 	                <td class="noborder" width="50%">
 	                    <div id="autores-div">
