@@ -96,64 +96,17 @@ class LibrosController extends AppController
         ]);
         $this->log($libro);
         if ($this->request->is(['patch', 'post', 'put'])) {
-        	// analizar $this->request para convertir 
-        	$this->log($this->request->getData());
-        	/* Lo que debe venir de vuelta
-        	 * (
-			    [nombreautor] => Aas,  Gregor - Riedmiller,  Andreas
-			    [titulo] => Árboles de hoja caduca
-			    [tema] => 1
-			    [topografia] => 
-			    [idioma] => Español
-			    [traductor] => Berasaín Villanueva, Alfonso
-			    [tipo] => Libro
-			    [editorial] => Everest
-			    [ciudad] => León
-			    [edicion] => 1ª
-			    [anio_edicion] => 1994
-			    [primera_edicion] => 1994
-			    [paginas] => 160
-			    [tomos] => 1
-			    [baja] => 0
-			    [autores] => Array
-			        (
-			            [_ids] => Array
-			                (
-			                    [0] => 925
-			                    [1] => 1312
-			                    [2] => 1118
-			                )
-			
-			        )
-			
-			    [busca-autores] => 
-			)
-			** Lo que viene de vuelta
-			*(
-			    [nombreautor] => Aas,  Gregor - Riedmiller,  Andreas
-			    [titulo] => Árboles de hoja caduca
-			    [tema] => 1
-			    [topografia] => 
-			    [idioma] => Español
-			    [traductor] => Berasaín Villanueva, Alfonso
-			    [tipo] => Libro
-			    [editorial] => Everest
-			    [ciudad] => León
-			    [edicion] => 1ª
-			    [anio_edicion] => 1994
-			    [primera_edicion] => 1994
-			    [paginas] => 160
-			    [tomos] => 1
-			    [baja] => 0
-			    [autores_hidden] => {"autor2":1118}
-			    [busca-autores] => 
-			)
-			*/       	
+        	$libroMod = $this->request->getData();
+
+			// Analiza el objeto json con los autores que viene de vuelta del formulario
+        	$losAutores = (array)json_decode($libroMod['autores_hidden']);
         	
-        	
-        	
-        	// parchear y guardar
-            $libro = $this->Libros->patchEntity($libro, $this->request->getData());
+        	$libroMod['autores']['_ids'] = array_map( function($a, $b) {
+        			return $b;
+        	}, array_keys($losAutores), $losAutores);
+
+        	// Ahora parchea la entidad con los autores modificados
+        	$libro = $this->Libros->patchEntity($libro, $libroMod);
             if ($this->Libros->save($libro)) {
                 $this->Flash->success(__('The libro has been saved.'));
 
@@ -162,15 +115,15 @@ class LibrosController extends AppController
             $this->Flash->error(__('The libro could not be saved. Please, try again.'));
         }
         
+        // Procesa autores leidos para pasarlos al formulario a través de un objeto json
         $autores_hidden = array();
         foreach ($libro->autores as $key=>$autor) {
         	$autores_hidden['autor'.$key] = $autor['id'];
         }
+        
         $temas = $this->Libros->Temas->find('list', ['limit' => 200]);
-        //$autores = $this->Libros->Autores->find('list', ['limit' => 200]);
         $autores_hidden = (json_encode($autores_hidden, JSON_FORCE_OBJECT));
-        //$prueba = "Esto es una prueba";
-        $this->set(compact('libro', 'temas', /*'autores','prueba',*/ 'autores_hidden'));
+        $this->set(compact('libro', 'temas', 'autores_hidden'));
 
         /*
         $temas = [
