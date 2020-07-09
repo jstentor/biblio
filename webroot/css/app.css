@@ -9,3 +9,8 @@ button filter {
 select.filtro {
     margin: 0 0 1rem 0;
 }
+
+button.nomargin {
+	margin: 0 !important;
+	/*padding: 0 !important;*/
+}

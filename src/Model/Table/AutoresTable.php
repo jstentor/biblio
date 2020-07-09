@@ -103,8 +103,10 @@ class AutoresTable extends Table
     {
         $nombre = $options['nombre'];
         $apellidos = $options['apellidos'];
-        return $query->where(['nombre LIKE' => "%$nombre%",
-                            'apellidos LIKE' => "%$apellidos%"]);
+        $ape_nom = $options['ape_nom'];
+        return $query->where(['OR' => ['nombre LIKE' => "%$nombre%",
+                            'apellidos LIKE' => "%$apellidos%",
+        					'ape_nom LIKE' => "%$ape_nom%"]]);
     }
     
     public function findLibrosNoAsignados(Query $query, array $options)

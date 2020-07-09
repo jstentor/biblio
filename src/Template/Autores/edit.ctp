@@ -51,7 +51,7 @@ $tabla_vacia = "<table><tbody><thead><td>Título</td></thead></tbody></tbody></t
                         <?= $this->Form->text('busca-libros', ['label' => 'Libros: ', 'id' => 'busca-libros']); ?>
                         <div class="error" id="errores"></div>
                         <div id="datos-libros">
-                            <?= $this->element('search_libros',['hallados' => []]); ?>
+                            <?php /*= $this->element('search_libros',['hallados' => []]); */ ?>
                         </div>
                     </td>
                 </tr>
@@ -103,7 +103,8 @@ $url_deletelibro1 = "'" . $this->Html->link('', ['controller'=> 'autores',
             url:  "<?= $this->url->build(['controller'=>'libros','action'=>'search'])?>" + "/" + keyword + "/<?= $autor->id ?>",
             
             success: function(response) {
-                $( '#datos-libros' ).html(response);                                
+                $( '#datos-libros' ).html(response);   
+                console.log(response);                             
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 console.log(xhr.status);

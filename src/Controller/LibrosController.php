@@ -163,7 +163,11 @@ class LibrosController extends AppController
         $query = $this->Libros->find('titulos', ['titulo' => $string, 'autor' => $autor])
                         ->limit(10);
         $this->set('hallados', $query);
-        $this->set('_serialize', ['hallados']);
+        $this->log($query->all());
+
+       // $this->set('_jsonOptions', JSON_FORCE_OBJECT);
+        
+        //$this->set('_serialize', ['hallados']);
     }
     
     public function ajaxDesasignar($libro_id = null,$autor_id=null) {

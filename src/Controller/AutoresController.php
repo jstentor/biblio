@@ -106,8 +106,17 @@ class AutoresController extends AppController
         $this->set(compact('autor', 'libros'/*,'jsonlibros'*/));
     }
 
-    public function search() {
+    public function search($string = '', $libro = 0) {    	
+    	$this->request->allowMethod('ajax');
+    	// busca autores utilizando finder findAutores 
+    	$query = $this->Autores->find('autores', ['nombre' => $string, 'apellidos' => $string, 'ape_nom' => $string])
+    		->limit(10);
+    	$this->set('hallados', $query);
+    	$this->log($query->all());
     	
+    	$this->set('_jsonOptions', JSON_FORCE_OBJECT);
+    	
+    	$this->set('_serialize', ['hallados']);
     }
     
     /**
