@@ -136,7 +136,20 @@
 	                <table>
 	                    <tr><th>Asignar Autor</th></tr>
 	                    <tr><td class="ui-widget">
-	                        <?= $this->Form->text('busca-autores', ['label' => 'Autores: ', 'id' => 'busca-autores']); ?>
+		                    <div class="large-8 columns">
+	                        <?= $this->Form->text('busca-autores', ['label' => 'Autores: ', 'id' => 'busca-autores', 'templates' => [
+		                        'inputContainer' => '<div class="large-4 columns">{{content}}</div>'
+		                    ]]); ?>
+		                    </div>
+		                    <div class="large-4 columns">
+	                        <?= $this->Form->button('', [
+					                    	'type' => 'button', 
+					                    	'class' => 'button warning tiny fi-x nomargin', 
+					                    	'alt' => 'Borrar entrada',
+					                    	//'id'=>$key,
+					                    	'onclick' => 'borraEntrada(); return false;'
+					                    ]); ?>
+					         </div>
                         <div class="error" id="errores"></div>
                         <div id="datos-autores">
 
@@ -187,12 +200,19 @@
     $( "#busca-autores" ).keyup(function() {
         var searchkey = $(this).val();
         if (searchkey.length == 0) {
-            $('#datos-autores' ).html("");
+            alert("vaciado");
+            $('#datos-autores' ).empty();
+            console.log("Input: " + searchkey.length + " --");
         } else {
             console.log("Input: " + searchkey.length + " --" + searchkey + "--");
             searchAutores( searchkey );
         }
     });
+
+	function borraEntrada() {
+		$('#busca-autores').val('');
+        $('#datos-autores').empty();
+    }
 
     function searchAutores( keyword ) {
         var data = keyword;
