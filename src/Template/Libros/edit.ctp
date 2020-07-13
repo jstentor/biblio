@@ -270,7 +270,10 @@
 
             success: function (response) {
                 // TODO: Aquí filtrar y quitar los autores que ya estén asociados
-                $('#datos-autores').html(response);
+                
+                // TODO: Ahora se muestran los resultados
+                
+                //$('#datos-autores').html(response);
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 console.log(xhr.status);

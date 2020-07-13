@@ -141,11 +141,16 @@ class AutoresController extends AppController
     	// busca autores utilizando finder findAutores 
     	$query = $this->Autores->find('autores', ['nombre' => $string, 'apellidos' => $string, 'ape_nom' => $string])
     		->limit(10);
-    	$this->set('hallados', $query);
-    	
-    	$this->set('_jsonOptions', JSON_FORCE_OBJECT);
-    	
-    	$this->set('_serialize', ['hallados']);
+    	$hallados = array();
+        foreach ($query as $row) {
+            array_push($hallados, $row);
+        }
+        $resultJ = json_encode($query);
+        
+        $this->response = $this->response
+                ->withType('application/json') // Here
+                ->withStringBody($resultJ);     // and here
+        return $this->response;
     }
     
     /**
