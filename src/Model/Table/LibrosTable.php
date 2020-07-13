@@ -225,4 +225,18 @@ class LibrosTable extends Table
     	return $searchManager;
     }
     
+    public function beforeSave($event, $entity, $options) {
+        //debug($event); debug($entity); debug($options);
+        
+        $autor = "";
+       //debug($entity['autores']);
+        for($i=0; $i < sizeof($entity['autores']); $i++) {
+            $autor .= ($entity['autores'][$i]['ape_nom'] . ' - ');
+           // debug($entity['autores'][$i]);
+        }
+        if ($autor != "") {
+            $autor = substr($autor, 0, strlen($autor) - 3);
+        }
+        $entity['nombreautor'] = $autor;
+    }
 }

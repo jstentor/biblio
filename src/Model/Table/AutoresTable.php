@@ -132,7 +132,7 @@ class AutoresTable extends Table
                 $apenom .= ', ' . trim($entity->nombre);
             }
         }
-        $entity->ape_nom = $apenom;
+        $entity->nombreautor = $apenom;
     }
 
     /**

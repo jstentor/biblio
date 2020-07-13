@@ -69,7 +69,16 @@ class LibrosController extends AppController
     {
         $libro = $this->Libros->newEntity();
         if ($this->request->is('post')) {
-            $libro = $this->Libros->patchEntity($libro, $this->request->getData());
+        	$libroNuevo = $this->request->getData();
+        	// Analiza el objeto json con los autores que viene de vuelta del formulario
+        	$losAutores = (array)json_decode($libroNuevo['autores_hidden']);
+        	
+        	$libroNuevo['autores']['_ids'] = array_map( function($a, $b) {
+        		return $b;
+        	}, array_keys($losAutores), $losAutores);
+        		
+        	
+        	$libro = $this->Libros->patchEntity($libro, $libroNuevo);
             if ($this->Libros->save($libro)) {
                 $this->Flash->success(__('The libro has been saved.'));
 
@@ -78,8 +87,8 @@ class LibrosController extends AppController
             $this->Flash->error(__('The libro could not be saved. Please, try again.'));
         }
         $temas = $this->Libros->Temas->find('list', ['limit' => 200]);
-        $autores = $this->Libros->Autores->find('list', ['limit' => 200]);
-        $this->set(compact('libro', 'temas', 'autores'));
+        $autores_hidden = (json_encode(array(), JSON_FORCE_OBJECT));        
+        $this->set(compact('libro', 'temas', 'autores_hidden'));
     }
 
     /**
@@ -94,22 +103,23 @@ class LibrosController extends AppController
         $libro = $this->Libros->get($id, [
             'contain' => ['Autores']
         ]);
-        $this->log($libro);
         if ($this->request->is(['patch', 'post', 'put'])) {
-        	$libroMod = $this->request->getData();
+            $libroMod = $this->request->getData();
+            $this->log ($libroMod);
 
-			// Analiza el objeto json con los autores que viene de vuelta del formulario
-        	$losAutores = (array)json_decode($libroMod['autores_hidden']);
-        	
-        	$libroMod['autores']['_ids'] = array_map( function($a, $b) {
-        			return $b;
-        	}, array_keys($losAutores), $losAutores);
+            // Analiza el objeto json con los autores que viene de vuelta del formulario
+            $losAutores = (array)json_decode($libroMod['autores_hidden']);
+            $this->log ($losAutores);
 
-        	// Ahora parchea la entidad con los autores modificados
-        	$libro = $this->Libros->patchEntity($libro, $libroMod);
+            $libroMod['autores']['_ids'] = array_map( function($a, $b) {
+                return $b;
+            }, array_keys($losAutores), $losAutores);
+            $this->log ($libroMod['autores']['_ids']);
+
+            // Ahora parchea la entidad con los autores modificados
+            $libro = $this->Libros->patchEntity($libro, $libroMod);
             if ($this->Libros->save($libro)) {
                 $this->Flash->success(__('The libro has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The libro could not be saved. Please, try again.'));

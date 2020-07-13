@@ -67,7 +67,7 @@ class Libro extends Entity
         'old_autores' => true
     ];
 
-    protected function _getLosAutores()
+    protected function _getLosAutores() //¿¿Se usa??
     {
         $autores = "";
         foreach($this->_properties['autores'] as $au) {

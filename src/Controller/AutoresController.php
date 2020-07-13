@@ -79,6 +79,36 @@ class AutoresController extends AppController
         $this->set(compact('autor', 'libros'));
     }
 
+    public function addautor($ape_nom)
+    {
+        $this->request->allowMethod('ajax');
+
+        $autor = $this->Autores->newEntity();
+        if ($this->request->is('post')) {
+            $autor['ape_nom'] = $ape_nom;
+            $anombre = explode(",", $ape_nom);
+            $autor['apellidos'] = (isset($anombre[0])) ? trim($anombre[0]): "";
+            $autor['nombre'] =    (isset($anombre[1])) ? trim($anombre[1]): "";
+            
+            $query = $this->Autores->find('all')
+                ->where(['Autores.ape_nom >' => $ape_nom])
+                ->limit(10);
+            
+            $this->log($query->first());
+            $resultJ = json_encode(null);
+            if ($query->first() == null) { // solo lo graba si no existe
+                if ($this->Autores->save($autor)) {
+                    $ret = array('id' => $autor['id'], 'ape_nom' => $autor['ape_nom']);
+                    $resultJ = json_encode($autor);
+                } 
+            }
+            $this->response = $this->response
+                ->withType('application/json') // Here
+                ->withStringBody($resultJ);     // and here
+            return $this->response;
+        }
+    }
+
     /**
      * Edit method
      *
@@ -112,7 +142,6 @@ class AutoresController extends AppController
     	$query = $this->Autores->find('autores', ['nombre' => $string, 'apellidos' => $string, 'ape_nom' => $string])
     		->limit(10);
     	$this->set('hallados', $query);
-    	$this->log($query->all());
     	
     	$this->set('_jsonOptions', JSON_FORCE_OBJECT);
     	
