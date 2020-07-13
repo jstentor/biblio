@@ -169,7 +169,16 @@
                                     </div>
                                     <div class="error columns" id="errores"></div>
                                     <div id="datos-autores">
-
+                                        <table>
+                                            <tbody>
+                                            <thead>
+                                                <tr><td>Autor</td><td>Asignar</td></tr>
+                                            </thead>
+                                            <tbody id="tbody-autores">
+                                                
+                                            </tbody>
+                                        </tbody>
+                                        </table>
                                     </div>
                                     </div>
                                 </td>
@@ -240,16 +249,14 @@
             url: "<?= $this->url->build(['controller' => 'autores', 'action' => 'addautor']) ?>" + "/" + autor,
 
             success: function (response) {
+                console.log(response);
                 if (response == null || response == undefined) { // es un error
                     $('#errores').html('Se ha producido un error al guardar el autor.');
                 } else {
-                    console.log(response);
                     agregaUno( response.id, response.ape_nom)
                 }
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                console.log(xhr.status);
-                console.log(thrownError);
                 $('#errores').html('Se ha producido un error al guardar el autor.');
             }
         });
@@ -266,18 +273,30 @@
         $.ajax({
             method: 'get',
 
-            url: "<?= $this->url->build(['controller' => 'autores', 'action' => 'search']) ?>" + "/" + keyword + "/<?= $libro->id ?>",
+            url: "<?= $this->url->build(['controller' => 'autores', 'action' => 'search']) ?>" + "/" + keyword,
 
             success: function (response) {
-                // TODO: Aquí filtrar y quitar los autores que ya estén asociados
-                
-                // TODO: Ahora se muestran los resultados
-                
-                //$('#datos-autores').html(response);
+                // Aquí filtrar y quitar los autores que ya estén asociados
+                let losAutores = JSON.parse($('#autores_hidden').val());
+                response.forEach(function(item, index, object) {
+                    let  i = Object.values(losAutores).indexOf(item.id);
+                    if (i != -1) {
+                      object.splice(index, 1);
+                    }
+                  });
+                // Ahora se muestran los resultados: añadir a #tbody-autores
+                $('#tbody-autores').html('');
+                response.forEach(function(item, index, object) {
+                    item.id;
+                    item.ape_nom;
+                    let newTr = $("<tr>");
+                    newTr.attr('id', 'busca-autor' + item.id);
+                    newTr.append('<td>' + item.ape_nom + '</td>');
+                    newTr.append('<td><button type="button" class="fi-check button tiny success nomargin" onclick="agregaUno(' + item.id + ', \'' + item.ape_nom + '\'); return false"></button></td>');
+                    $('#tbody-autores').append(newTr);
+                });
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                console.log(xhr.status);
-                console.log(thrownError);
                 $('#errores').html('Se ha producido un error al buscar el autor.');
             }
         });
@@ -286,12 +305,10 @@
     function agregaUno(idAutor, ape_nom) {
         // Convertir campo oculto a json
         let losAutores = JSON.parse($('#autores_hidden').val());
-        console.log(losAutores);
 
         // obtener número de autor más alto y sumar uno
         let proximoNumero = -1;
         for (var key of Object.keys(losAutores)) {
-            console.log(key + " -> " + losAutores[key]);
             let num = parseInt(key.substr(5));
             proximoNumero = (num > proximoNumero) ? num : proximoNumero;
         }
@@ -302,11 +319,9 @@
 
         // actualizar campo oculto
         $('#autores_hidden').val(JSON.stringify(losAutores));
-        console.log(losAutores);
 
         // eliminar autor de la tabla de búsquda
         $('#busca-autor' + idAutor).remove();
-        console.log('#busca-autor' + idAutor);
 
         // agregar elemento a la tabla
         let newTr = $("<tr>");
@@ -316,7 +331,6 @@
 
 
         $('#tabla_autores > tbody').append(newTr);
-        console.log(idAutor, ape_nom);
     }
 
 </script>

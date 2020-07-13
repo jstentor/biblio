@@ -79,35 +79,6 @@ class AutoresController extends AppController
         $this->set(compact('autor', 'libros'));
     }
 
-    public function addautor($ape_nom)
-    {
-        $this->request->allowMethod('ajax');
-
-        $autor = $this->Autores->newEntity();
-        if ($this->request->is('post')) {
-            $autor['ape_nom'] = $ape_nom;
-            $anombre = explode(",", $ape_nom);
-            $autor['apellidos'] = (isset($anombre[0])) ? trim($anombre[0]): "";
-            $autor['nombre'] =    (isset($anombre[1])) ? trim($anombre[1]): "";
-            
-            $query = $this->Autores->find('all')
-                ->where(['Autores.ape_nom >' => $ape_nom])
-                ->limit(10);
-            
-            $this->log($query->first());
-            $resultJ = json_encode(null);
-            if ($query->first() == null) { // solo lo graba si no existe
-                if ($this->Autores->save($autor)) {
-                    $ret = array('id' => $autor['id'], 'ape_nom' => $autor['ape_nom']);
-                    $resultJ = json_encode($autor);
-                } 
-            }
-            $this->response = $this->response
-                ->withType('application/json') // Here
-                ->withStringBody($resultJ);     // and here
-            return $this->response;
-        }
-    }
 
     /**
      * Edit method
@@ -131,54 +102,8 @@ class AutoresController extends AppController
             $this->Flash->error(__('The autor could not be saved. Please, try again.'));
         }
         $libros = $this->Autores->Libros->find('list', ['limit' => 200, 'order' => ['titulo' => 'ASC']]);
-        //$jsonlibros = $this->json_get_libros_sin_asignar($id);
 
         $this->set(compact('autor', 'libros'/*,'jsonlibros'*/));
-    }
-
-    public function search($string = '', $libro = 0) {    	
-    	$this->request->allowMethod('ajax');
-    	// busca autores utilizando finder findAutores 
-    	$query = $this->Autores->find('autores', ['nombre' => $string, 'apellidos' => $string, 'ape_nom' => $string])
-    		->limit(10);
-    	$hallados = array();
-        foreach ($query as $row) {
-            array_push($hallados, $row);
-        }
-        $resultJ = json_encode($query);
-        
-        $this->response = $this->response
-                ->withType('application/json') // Here
-                ->withStringBody($resultJ);     // and here
-        return $this->response;
-    }
-    
-    /**
-     * get_libros_sin_asignar
-     *
-     * @param $id de autor
-     * @return array $libros sin asignar a ese autor
-     *
-     */
-    private function json_get_libros_sin_asignar($id) {
-        $lista = array();
-        $libros = TableRegistry::get('Libros');
-        $au_libros = TableRegistry::get('AutoresLibros');
-        $libros_ya_asignados = $au_libros
-            ->find()
-            ->select('libro_id')
-            ->where(['autor_id' => $id]);
-        $query = $libros
-            ->find()
-            ->select(['id', 'titulo'])
-            ->where([
-              'Libros.id NOT IN' => $libros_ya_asignados
-            ])
-            ->order(['titulo' => 'ASC']);
-        foreach($query as $libro) {
-                array_push($lista, ['label' => $libro->titulo, 'value' => $libro->id]);
-        }
-        return json_encode($lista);
     }
 
     /**
@@ -199,5 +124,67 @@ class AutoresController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+    
+    /* 
+     * Métodos ajax
+     *
+     */
+    /**
+     * addautor: añade un autor a la tabla de autores desde la plantilla edit de Libros
+     * 
+     * @param type $ape_nom
+     * @return type json object
+     */
+    public function addautor($ape_nom)
+    {
+        $this->request->allowMethod('ajax');
+
+        $autor = $this->Autores->newEntity();
+        if ($this->request->is('post')) {
+            $autor['ape_nom'] = $ape_nom;
+            $anombre = explode(",", $ape_nom);
+            $autor['apellidos'] = (isset($anombre[0])) ? trim($anombre[0]): "";
+            $autor['nombre'] =    (isset($anombre[1])) ? trim($anombre[1]): "";
+            
+            $query = $this->Autores->find('all')
+                ->where(['Autores.ape_nom' => $ape_nom])
+                ->limit(10);
+            
+            $resultJ = json_encode(null);
+            if ($query->first() == null) { // solo lo graba si no existe
+                if ($this->Autores->save($autor)) {
+                    $ret = array('id' => $autor['id'], 'ape_nom' => $autor['ape_nom']);
+                    $resultJ = json_encode($autor);
+                } 
+            }
+            $this->response = $this->response
+                ->withType('application/json') // Here
+                ->withStringBody($resultJ);     // and here
+            return $this->response;
+        }
+    }
+
+    /**
+     * search: busca un nombre de autor a partir de un string
+     * 
+     * @param type $string
+     * @return type json object
+     */
+    public function search($string = '') {    	
+    	$this->request->allowMethod('ajax');
+    	// busca autores utilizando finder findAutores 
+    	$query = $this->Autores->find('autores', ['nombre' => $string, 'apellidos' => $string, 'ape_nom' => $string])
+    		->limit(10);
+    	$hallados = array();
+        foreach ($query as $row) {
+            array_push($hallados, $row);
+        }
+        $resultJ = json_encode($query);
+        
+        $this->response = $this->response
+                ->withType('application/json') // Here
+                ->withStringBody($resultJ);     // and here
+        return $this->response;
     }
 }

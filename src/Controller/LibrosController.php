@@ -167,32 +167,18 @@ class LibrosController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-    public function search($string = '', $autor = 0) {
+    
+    public function search($string = '') {
         
         $this->request->allowMethod('ajax');
         $query = $this->Libros->find('titulos', ['titulo' => $string, 'autor' => $autor])
                         ->limit(10);
         $this->set('hallados', $query);
         $this->log($query->all());
-
-       // $this->set('_jsonOptions', JSON_FORCE_OBJECT);
-        
-        //$this->set('_serialize', ['hallados']);
-    }
-    
-    public function ajaxDesasignar($libro_id = null,$autor_id=null) {
-    	if($libro_id== null || $autor_id== null) {
-    		$this->Flash->warning('Error en id de libro o id de autor');
-    		$this->redirect(array('controller'=>'libros','action'=> 'index'));
-    	} else {
-    		$this->loadModel('ExtensionesUsuarios');
-    		//esto es lo que hay que salvar
-    		$entity = $this->ExtensionesUsuarios->get($id_exte_usu, ['contain' => ['Usuarios', 'Extensiones']]);
-    		$datos = $entity;
-    		//$this->Session->setFlash('Extensión '.$datos['Extension']['extension'].' asignada a Usuario '.$datos['Usuario']['usuario']);
-    		$this->ExtensionesUsuarios->delete($entity);
-    		$this->Flash->success('Usuario "'.$datos['usuario']['usuario'].'" desasignado de la Extensión "'. $datos['extension']['extension'] . '"');
-    		$this->redirect(array('controller'=>'extensiones','action'=> 'edit',$extension_id));
-    	}
+        $resultJ = json_encode($query->all());
+        $this->response = $this->response
+                ->withType('application/json') // Here
+                ->withStringBody($resultJ);     // and here
+        return $this->response;
     }
 }
