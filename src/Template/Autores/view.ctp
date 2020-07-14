@@ -30,14 +30,6 @@
             <th scope="row"><?= __('Apellidos') ?></th>
             <td><?= h($autor->apellidos) ?></td>
         </tr>
-        <tr>
-            <th scope="row"><?= __('Created') ?></th>
-            <td><?= h($autor->created) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Modified') ?></th>
-            <td><?= h($autor->modified) ?></td>
-        </tr>
     </table>
     <div class="related">
         <h4><?= __('Related Libros') ?></h4>
@@ -51,7 +43,7 @@
             <?php foreach ($autor->libros as $libros): ?>
             <tr>
                 <td><?= h($libros->titulo) . ($libros->baja ? ' <em>(baja)</em>' : '') ?></td>
-                <td><?= h($libros->tema->tema) ?></td>
+                <td><?= ($libros->tema) ? h($libros->tema->tema) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Libros', 'action' => 'view', $libros->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Libros', 'action' => 'edit', $libros->id]) ?>
