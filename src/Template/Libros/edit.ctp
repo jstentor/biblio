@@ -42,61 +42,51 @@
         <div class="row">
             <?php
             echo $this->Form->control('tema', ['templates' => [
-                    'inputContainer' => '<div class="large-6 columns">{{content}}</div>'
+                    'inputContainer' => '<div class="large-4 columns">{{content}}</div>'
             ]]);
-            echo $this->Form->control('topografia', ['templates' => [
-                    'inputContainer' => '<div class="large-6 columns">{{content}}</div>'
-            ]]);
-            ?>
-        </div>
-        <div class="row">
-            <?php
             echo $this->Form->control('idioma', ['templates' => [
-                    'inputContainer' => '<div class="large-6 columns">{{content}}</div>'
+                    'inputContainer' => '<div class="large-4 columns">{{content}}</div>'
             ]]);
             echo $this->Form->control('traductor', ['templates' => [
-                    'inputContainer' => '<div class="large-6 columns">{{content}}</div>'
+                    'inputContainer' => '<div class="large-4 columns">{{content}}</div>'
             ]]);
             ?>
         </div>
         <div class="row">
             <?php
-            echo $this->Form->control('tipo', ['templates' => [
-                    'inputContainer' => '<div class="large-4 columns">{{content}}</div>'
-            ]]);
             echo $this->Form->control('editorial', ['templates' => [
-                    'inputContainer' => '<div class="large-4 columns">{{content}}</div>'
+                    'inputContainer' => '<div class="large-3 columns">{{content}}</div>'
             ]]);
             echo $this->Form->control('ciudad', ['templates' => [
-                    'inputContainer' => '<div class="large-4 columns">{{content}}</div>'
+                    'inputContainer' => '<div class="large-3 columns">{{content}}</div>'
             ]]);
-            ?>
-        </div>
-        <div class="row">
-            <?php
             echo $this->Form->control('edicion', ['templates' => [
-                    'inputContainer' => '<div class="large-4 columns">{{content}}</div>'
+                    'inputContainer' => '<div class="large-3 columns">{{content}}</div>'
             ]]);
             echo $this->Form->control('anio_edicion', ['templates' => [
-                    'inputContainer' => '<div class="large-4 columns">{{content}}</div>'
-            ]]);
-            echo $this->Form->control('primera_edicion', ['templates' => [
-                    'inputContainer' => '<div class="large-4 columns">{{content}}</div>'
+                    'inputContainer' => '<div class="large-3 columns">{{content}}</div>'
             ]]);
             ?>
         </div>
         <div class="row">
             <?php
+            echo $this->Form->control('primera_edicion', ['templates' => [
+                    'inputContainer' => '<div class="large-3 small-6 columns">{{content}}</div>'
+            ]]);
             echo $this->Form->control('paginas', ['templates' => [
-                    'inputContainer' => '<div class="large-4 columns">{{content}}</div>'
+                    'inputContainer' => '<div class="large-3 small-6 columns">{{content}}</div>'
             ]]);
             echo $this->Form->control('tomos', ['templates' => [
-                    'inputContainer' => '<div class="large-4 columns">{{content}}</div>'
+                    'inputContainer' => '<div class="large-2 small-6 columns">{{content}}</div>'
+            ]]);
+            echo $this->Form->control('tipo', ['templates' => [
+                    'inputContainer' => '<div class="large-2 small-6 columns">{{content}}</div>'
             ]]);
             echo $this->Form->control('baja', ['templates' => [
-                    'inputContainer' => '<div class="large-4 columns">{{content}}</div>'
+                    'inputContainer' => '<div class="large-2 small-6 columns">{{content}}</div>'
             ]]);
             ?>
+
         </div>
 
         <div class="row">
@@ -138,7 +128,7 @@
                         <table>
                             <tr><th>Asignar Autor</th></tr>
                             <tr><td class="ui-widget">
-                                    <div class="large-8 columns">
+                                    <div class="large-8 small-4 columns">
                                         <?=
                                         $this->Form->text('busca-autores', ['label' => 'Autores: ', 'id' => 'busca-autores', 'templates' => [
                                                 'inputContainer' => '<div class="large-4 columns">{{content}}</div>'

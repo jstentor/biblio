@@ -25,45 +25,33 @@
             <td colspan="3">[[<?= h($libro->nombreautor) ?>]]</td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Autores') ?></th>
-            <td colspan="3"><?= h($libro->los_autores) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Titulo') ?></th>
             <td colspan="3"><?= h($libro->titulo) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Tema') ?></th>
             <td><?= $libro->has('tema') ? $this->Html->link($libro->tema->tema, ['controller' => 'Temas', 'action' => 'view', $libro->tema->id]) : '' ?></td>
-            <th scope="row"><?= __('Topografía') ?></th>
-            <td><?= h($libro->topografia) ?></td>
+            <th scope="row"><?= __('Idioma') ?></th>
+            <td><?= h($libro->idioma) ?></td>
         </tr>
 
         <tr>
-            <th scope="row"><?= __('Idioma') ?></th>
-            <td><?= h($libro->idioma) ?></td>
             <th scope="row"><?= __('Traductor') ?></th>
             <td><?= h($libro->traductor) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Editorial') ?></th>
             <td><?= h($libro->editorial) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Ciudad') ?></th>
             <td><?= h($libro->ciudad) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Edición') ?></th>
             <td><?= h($libro->edicion) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Anio Edicion') ?></th>
             <td><?= $this->Number->format($libro->anio_edicion) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Primera Edición') ?></th>
-            <td colspan="3"><?= $this->Number->format($libro->primera_edicion) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Tipo') ?></th>
-            <td colspan="3"><?= h($libro->tipo) ?></td>
+            <td><?= $this->Number->format($libro->primera_edicion) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Paginas') ?></th>
@@ -72,22 +60,12 @@
             <td><?= $this->Number->format($libro->tomos) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Created') ?></th>
-            <td colspan = "3"><?= h($libro->created) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Modified') ?></th>
-            <td colspan = "3"><?= h($libro->modified) ?></td>
-        </tr>
-        <tr>
+            <th scope="row"><?= __('Tipo') ?></th>
+            <td><?= h($libro->tipo) ?></td>
             <th scope="row"><?= __('Baja') ?></th>
-            <td colspan = "3"><?= $libro->baja ? __('Yes') : __('No'); ?></td>
+            <td><?= $libro->baja ? __('Yes') : __('No'); ?></td>
         </tr>
     </table>
-    <div class="row">
-        <h4><?= __('Observaciones') ?></h4>
-        <?= $this->Text->autoParagraph(h($libro->observaciones)); ?>
-    </div>
     <div class="related">
         <h4><?= __('Related Autores') ?></h4>
         <?php if (!empty($libro->autores)): ?>
